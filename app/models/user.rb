@@ -11,4 +11,7 @@ class User < ApplicationRecord
     validates :last_name
     validates :nickname
   end
+
+  has_many :notes, through: :note_users
+  has_many :note_users
 end
