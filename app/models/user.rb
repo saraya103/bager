@@ -11,4 +11,8 @@ class User < ApplicationRecord
     validates :last_name
     validates :nickname
   end
+
+  has_many :note_users, foreign_key: 'user_id'
+  has_many :notes, through: :note_users
+
 end

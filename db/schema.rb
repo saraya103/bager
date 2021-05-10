@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_222705) do
+ActiveRecord::Schema.define(version: 2021_05_09_230111) do
+
+  create_table "note_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "note_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_note_users_on_note_id"
+    t.index ["user_id"], name: "index_note_users_on_user_id"
+  end
+
+  create_table "notes", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "password", null: false
+    t.integer "owner", null: false
+    t.integer "genre_id", default: 1, null: false
+    t.string "list_name", default: "登録中のリスト", null: false
+    t.string "log_name", default: "購入履歴", null: false
+    t.string "reserve_name", default: "予約一覧", null: false
+    t.string "item_name", default: "アイテム一覧", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +50,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_222705) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "note_users", "notes"
+  add_foreign_key "note_users", "users"
 end

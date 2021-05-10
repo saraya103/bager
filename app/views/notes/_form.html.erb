@@ -1,24 +1,28 @@
-<%= form_with model: モデル名, local: true do |f|%>
+<%= form_with model: @note, local: true do |f|%>
   <div class="field">
-    <%= f.label :hoge, "ノートの名称" %><br />
-    <%= f.text_field :hoge, id:"prototype_title" %>
+    <%= f.label :genre_id, "ジャンル" %><br />
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+  </div>
+  <div class="field">
+    <%= f.label :list_name, "リストのタイトル" %><br />
+    <%= f.text_field :list_name, id:"note_list" %>
+  </div>
+  <div class="field">
+    <%= f.label :loge_name, "履歴のタイトル" %><br />
+    <%= f.text_field :log_name, class: :form__text, id:"note_log" %>
   </div>
 
   <div class="field">
-    <%= f.label :hoge, "キャッチコピー" %><br />
-    <%= f.text_area :hoge, class: :form__text, id:"prototype_catch_copy" %>
+    <%= f.label :reserve_name, "予約のタイトル" %><br />
+    <%= f.text_field :reserve_name, class: :form__text, id:"note_reserve" %>
   </div>
 
   <div class="field">
-    <%= f.label :hoge, "コンセプト" %><br />
-    <%= f.text_area :hoge, class: :form__text, id:"prototype_concept" %>
+    <%= f.label :item_name, "アイテム表のタイトル" %><br />
+    <%= f.text_field :item_name, class: :form__text, id:"note_item" %>
   </div>
-
-  <div class="field">
-    <%= f.label :hoge, "ノートの画像" %><br />
-    <%= f.file_field :hoge, id:"prototype_image" %>
-  </div>
-
+  <input name="owner" type="hidden" value=<%= current_user.id %>>
+  <input name="note[user_ids][]" type="hidden" value=<%= current_user.id %>>
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
   </div>
