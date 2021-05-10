@@ -12,6 +12,7 @@ class User < ApplicationRecord
     validates :nickname
   end
 
+  has_many :note_users, foreign_key: 'user_id'
   has_many :notes, through: :note_users
-  has_many :note_users
+
 end
