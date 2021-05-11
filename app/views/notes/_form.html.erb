@@ -22,7 +22,8 @@
     <%= f.text_field :item_name, class: :form__text, id:"note_item" %>
   </div>
   <input name="owner" type="hidden" value=<%= current_user.id %>>
-  <input name="note[user_ids][]" type="hidden" value=<%= current_user.id %>>
+    <input name="note[user_id][]" type="hidden" value=<%= 1 %>>
+  <input name="note[user_id][]" type="hidden" value=<%= current_user.id %>>
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
   </div>

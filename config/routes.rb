@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'notes#index'
-  resources :notes, only:[:index, :new, :create]
+  resources :notes, only:[:index, :new, :create], param: :path
 end

@@ -20,7 +20,7 @@ has_many :note_users
 
 |Column          |Type       |Options                 |
 |----------------|-----------|------------------------|
-|id              |string     |null:false, unique:true |
+|path            |string     |null:false, unique:true |
 |password        |string     |null:false              |
 |owner           |integer    |null:false              |
 |genre_id        |integer    |null:false              |
