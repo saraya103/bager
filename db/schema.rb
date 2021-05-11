@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_09_230111) do
   end
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "path", null: false
+    t.string "character", null: false
     t.string "password", null: false
     t.integer "owner", null: false
     t.integer "genre_id", default: 1, null: false
