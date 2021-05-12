@@ -9,8 +9,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     set_char
-    binding.pry
-    if @note.save!
+    if @note.save
       redirect_to root_path
     else
       render :new

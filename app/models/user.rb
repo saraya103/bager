@@ -12,7 +12,7 @@ class User < ApplicationRecord
     validates :nickname
   end
 
-  has_many :note_users
+  has_many :note_users, dependent: :destroy
   has_many :notes, through: :note_users
 
 end

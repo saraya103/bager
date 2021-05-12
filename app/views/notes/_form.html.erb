@@ -1,4 +1,4 @@
-<%= form_with model: @note, local: true do |f|%>
+<%= form_with model: note, local: true do |f|%>
   <div class="field">
     <%= f.label :genre_id, "ジャンル" %><br />
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
@@ -21,7 +21,6 @@
     <%= f.label :item_name, "アイテム表のタイトル" %><br />
     <%= f.text_field :item_name, class: :form__text, id:"note_item" %>
   </div>
-  <input name="note[user_ids][]" type="hidden" value=<%= 1 %>>
   <input name="note[user_ids][]" type="hidden" value=<%= current_user.id %>>
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
