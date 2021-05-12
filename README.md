@@ -54,7 +54,7 @@ belongs_to :note
 |----------------|-----------|-----------------------------|
 |name            |string     |null:false                   |
 |price           |integer    |null:false                   |
-|count_id        |integer    |null:false                   |
+|count           |integer    |null:false                   |
 |condition       |string     |                             |
 |memo            |text       |                             |
 |note            |references |null:false, foreign_key:true |
