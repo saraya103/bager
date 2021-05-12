@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_230111) do
+ActiveRecord::Schema.define(version: 2021_05_12_205947) do
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "count", default: 1, null: false
+    t.string "condition"
+    t.text "memo"
+    t.bigint "note_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_items_on_note_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
 
   create_table "note_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "note_id"
@@ -51,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_05_09_230111) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "notes"
+  add_foreign_key "items", "users"
   add_foreign_key "note_users", "notes"
   add_foreign_key "note_users", "users"
 end

@@ -55,11 +55,9 @@ belongs_to :note
 |name            |string     |null:false                   |
 |price           |integer    |null:false                   |
 |count_id        |integer    |null:false                   |
-|condition       |string     |null:false                   |
-|memo            |string     |null:false                   |
-|list            |references |null:false, foreign_key:true |
-|log             |references |null:false, foreign_key:true |
-|reserve         |references |null:false, foreign_key:true |
+|condition       |string     |                             |
+|memo            |text       |                             |
+|note            |references |null:false, foreign_key:true |
 |user            |references |null:false, foreign_key:true |
 
 ### Association
