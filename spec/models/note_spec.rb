@@ -13,16 +13,16 @@ RSpec.describe Note, type: :model do
     end
 
     context '異常系テスト' do
-      it 'idが空では登録できないこと' do
-        @note.id = nil
+      it 'characterが空では登録できないこと' do
+        @note.character = nil
         @note.valid?
-        expect(@note.errors.full_messages).to include("Id can't be blank")
+        expect(@note.errors.full_messages).to include("Character can't be blank")
       end
-      it 'idが登録済のものでは登録できないこと' do
+      it 'characterが登録済のものでは登録できないこと' do
         @note.save
-        another_note = FactoryBot.build(:note, id: @note.id)
+        another_note = FactoryBot.build(:note, character: @note.character)
         another_note.valid?
-        expect(another_note.errors.full_messages).to include('Id has already been taken')
+        expect(another_note.errors.full_messages).to include('Character has already been taken')
       end
       it 'passwordが空では登録できないこと' do
         @note.password = nil

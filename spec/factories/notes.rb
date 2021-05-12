@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :note do
-    id {Faker::Lorem.characters(number: 12)}
+    character {Faker::Lorem.characters(number: 12)}
     password {Faker::Lorem.characters(number: 6)}
     owner {Faker::Number.number(digits: 4)}
     genre_id {1}

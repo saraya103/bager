@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_05_09_230111) do
 
   create_table "note_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "note_id"
+    t.bigint "note_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 2021_05_09_230111) do
     t.index ["user_id"], name: "index_note_users_on_user_id"
   end
 
-  create_table "notes", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "character", null: false
     t.string "password", null: false
     t.integer "owner", null: false
     t.integer "genre_id", default: 1, null: false
