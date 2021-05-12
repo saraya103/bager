@@ -1,7 +1,7 @@
 class CreateNotes < ActiveRecord::Migration[6.0]
   def change
     create_table :notes do |t|
-      t.string  :character,          null: false
+      t.string  :character,          null: false, unique: true
       t.string  :password,           null: false
       t.integer :owner,              null: false
       t.integer :genre_id,           null: false, default: 1
