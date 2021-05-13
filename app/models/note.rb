@@ -2,6 +2,7 @@ class Note < ApplicationRecord
   has_many :note_users, dependent: :destroy
   has_many :users, through: :note_users, validate: false
   has_many :items, dependent: :destroy
+  has_one :list, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
 
