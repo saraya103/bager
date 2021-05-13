@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'notes#index'
   resources :notes, only: [:index, :new, :create, :show], param: :character do
     resources :items
+    resources :lists
   end
   resources :users, only: [:edit, :update]
 end
