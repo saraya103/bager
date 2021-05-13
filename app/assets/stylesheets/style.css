@@ -142,7 +142,9 @@ a {
   margin-bottom: 40px;
 }
 .card__img {
-  margin-bottom: 16px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 .card__title {
   display: block;
@@ -159,6 +161,28 @@ a {
   color: #999;
   text-align: right;
   text-decoration: underline;
+}
+
+input[type=checkbox] {
+  transform: scale(2);
+}
+
+table {
+  margin: 3px auto;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+th {
+  background-color: #666;
+  color: white;
+}
+
+td {
+  width: 250px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 /* 詳細ページ */
