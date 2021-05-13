@@ -3,6 +3,7 @@ class Note < ApplicationRecord
   has_many :users, through: :note_users, validate: false
   has_many :items, dependent: :destroy
   has_one :list, dependent: :destroy
+  has_one :log, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
 

@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :note
   belongs_to :user
   has_one :list
+  has_many :logs
   has_one_attached :image
 
   with_options presence: true do
