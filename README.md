@@ -70,10 +70,10 @@ belongs_to : reserve
 
 |Column       |Type       |Options                      |
 |-------------|-----------|-----------------------------|
-|room         |references |null:false, foreign_key:true |
+|note         |references |null:false, foreign_key:true |
 
 ### Association
-belongs_to :room
+belongs_to :note
 has_many :items
 has_one :log
 has_one :reserve
@@ -82,11 +82,11 @@ has_one :reserve
 
 |Column        |Type       |Options                      |
 |--------------|-----------|-----------------------------|
-|room          |references |null:false, foreign_key:true |
+|note          |references |null:false, foreign_key:true |
 |list          |references |null:false, foreign_key:true |
 
 ### Association
-belongs_to :room
+belongs_to :note
 has_many :items
 belongs_to :list
 
@@ -94,11 +94,11 @@ belongs_to :list
 
 |Column        |Type       |Options                      |
 |--------------|-----------|-----------------------------|
-|room          |references |null:false, foreign_key:true |
+|note          |references |null:false, foreign_key:true |
 |list          |references |null:false, foreign_key:true |
 
 ### Association
-belongs_to :room
+belongs_to :note
 belongs_to :list
 
 ## comments テーブル
@@ -107,8 +107,8 @@ belongs_to :list
 |--------------|-----------|-----------------------------|
 |content       |text       |null:false                   |
 |user          |references |null:false, foreign_key:true |
-|room          |references |null:false, foreign_key:true |
+|note          |references |null:false, foreign_key:true |
 
 ### Association
 belongs_to :user
-belongs_to :room
+belongs_to :note
