@@ -82,6 +82,12 @@ has_one :reserve
 
 |Column        |Type       |Options                      |
 |--------------|-----------|-----------------------------|
+|name          |string     |null:false                   |
+|price         |integer    |null:false                   |
+|count         |integer    |null:false                   |
+|condition     |string     |                             |
+|memo          |text       |                             |
+|buyer         |string     |null:false                   |
 |note          |references |null:false, foreign_key:true |
 |item          |references |null:false, foreign_key:true |
 
