@@ -1,0 +1,40 @@
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+        <%= @log.name %>
+      </p>
+      <div class="prototype__image">
+      </div>
+      <div class="prototype__body">
+        <div class="prototype__detail">
+        <table>
+          <tr>
+            <td colspan="2"></td>
+          </tr><tr> 
+          <tr>
+            <td><p class="detail__title"><%= "購入日時" %></p></td>
+            <td><p class="detail__title"><%= l @log.created_at %></p>
+          </tr><tr>
+            <td><p class="detail__title"><%= "購入者" %></p></td>
+            <td><p class="detail__title"><%= @log.buyer %></p></td>
+          </tr><tr>
+            <td><p class="detail__title"><%= "購入価格" %></p></td>
+            <td><p class="detail__title"><%= @log.price %></p></td>
+          </tr><tr>
+            <td><p class="detail__title"><%= "購入個数" %></p></td>
+            <td><p class="detail__title"><%= @log.count %></p></td>
+          </tr><tr>
+            <td><p class="detail__title"><%= "購入条件" %></p></td>
+            <td><p class="detail__title"><%= @log.condition %></p></td>
+          </tr><tr>
+            <td><p class="detail__title"><%= "備考" %></p></td>
+            <td><p class="detail__title"><%= @log.memo %></p></td>
+          </tr>
+        </table>
+          <%= link_to "一覧へ戻る", note_logs_path(@log.note.character)  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

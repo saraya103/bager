@@ -62,8 +62,8 @@ belongs_to :note
 
 ### Association
 belongs_to : user
-belongs_to : list
-belongs_to : log
+has_one : list
+has_many : logs
 belongs_to : reserve
 
 ## lists テーブル
@@ -71,24 +71,29 @@ belongs_to : reserve
 |Column       |Type       |Options                      |
 |-------------|-----------|-----------------------------|
 |note         |references |null:false, foreign_key:true |
+|item         |references |null:false, foreign_key:true |
 
 ### Association
 belongs_to :note
-has_many :items
-has_one :log
+belongs_to :item
 has_one :reserve
 
 ## logs テーブル
 
 |Column        |Type       |Options                      |
 |--------------|-----------|-----------------------------|
+|name          |string     |null:false                   |
+|price         |integer    |null:false                   |
+|count         |integer    |null:false                   |
+|condition     |string     |                             |
+|memo          |text       |                             |
+|buyer         |string     |null:false                   |
 |note          |references |null:false, foreign_key:true |
-|list          |references |null:false, foreign_key:true |
+|user          |references |null:false, foreign_key:true |
 
 ### Association
 belongs_to :note
-has_many :items
-belongs_to :list
+belongs_to :user
 
 ## reserves テーブル
 

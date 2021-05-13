@@ -20,9 +20,19 @@ class ListsController < ApplicationController
     end
   end
 
-  def destroy
-    @note = Note.find_by(character: params[:note_char])
+  def update
     @list = List.find(params[:id])
+    @note = Note.find_by(character: params[:note_character])
+    new_log
+    if @log.save
+      @list.destroy
+      redirect_to note_lists_path(params[:note_character])
+    end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @note = Note.find_by(character: params[:note_char])
     @list.destroy
     redirect_to note_lists_path(params[:note_character])
   end
@@ -30,6 +40,18 @@ class ListsController < ApplicationController
   private
   def list_params
     params.permit(:item_id).merge(note_id: params[:note_character])
+  end
+  
+  def new_log
+    @log = Log.new
+    @log.name = @list.item.name
+    @log.price = @list.item.price
+    @log.count = @list.item.count
+    @log.condition = @list.item.condition
+    @log.memo = @list.item.memo
+    @log.buyer = current_user.nickname
+    @log.note_id = @list.item.note_id
+    @log.user_id = @list.item.user_id
   end
 
   def delete_item

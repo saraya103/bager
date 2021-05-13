@@ -1,0 +1,29 @@
+<main class="main">
+  <div class="inner">
+  <h1><%= "#{@note.item_name}" %></h1>
+    <table>
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>名前</th>
+          <th>金額</th>
+          <th>個数</th>
+          <th>条件</th>
+          <th>備考</th>
+          <th>購入者</th>
+          <th>編集</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div>
+          <%= render partial: 'log', collection: @logs %>
+        </div>
+      </tbody>
+    </table>
+        <% if user_signed_in? %>
+      <div class="greeting">
+        <%= link_to "リストへ戻る", note_lists_path(@note.character), class: :greeting__link%>
+      </div>
+    <% end %>
+  </div>
+</main>

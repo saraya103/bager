@@ -149,16 +149,24 @@ a {
 .card__title {
   display: block;
   font-size: 20px;
+  color: #555;
   margin-bottom: 8px;
   font-weight: bold;
 }
+.card__body {
+  background-color: #bbb;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
 .card__summary {
-  font-size: 16px;
+  font-size: 36px;
+  text-align: center;
+  color:white;
 }
 .card__user {
   display: block;
   font-size: 12px;
-  color: #999;
+  color: white;
   text-align: right;
   text-decoration: underline;
 }
