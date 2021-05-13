@@ -5,7 +5,9 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :price
-    validates :count
+    with_options numericality: true do
+      validates :price
+      validates :count
+    end
   end
 end
