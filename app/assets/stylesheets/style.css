@@ -37,10 +37,11 @@ a {
 /* ヘッダー */
 
 .header {
-  background-color: #f1f8fe;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
   margin-bottom: 48px;
-  padding: 20px 0;
-
+  padding: 10px 0;
 }
 .inner {
   width: 1024px;
@@ -50,38 +51,41 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .logo {
   width: 200px;
 }
 .nav__btn{
   display: inline-block;
-  padding: 0.4em 1.6em;
+  padding: 0.6em 2em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #ddd;
   text-decoration: none;
   user-select: none;
-  border: 1px #87CEFA solid;
+  border: 1px #ddd solid;
   border-radius: 3px;
   transition: 0.4s ease;
 }
 .nav__btn:hover{
   color: #fff;
-  background: #87CEFA;
+  background: #888;
 }
 
 .nav__logout{
   display: inline-block;
   padding: 0.4em 1.6em;
   font-size: 0.8em;
-  color: #87CEFA;
+  color: #fff;
   text-decoration: none;
   user-select: none;
 }
 .nav__logout:hover{
   opacity: 0.5;
 }
-
+.head__box a {
+  color: #def;
+}
 /* フォーム周り */
 .form__wrapper{
   min-height: calc(100vh - 161px);
@@ -120,11 +124,20 @@ a {
 
 /* メイン */
 
+
+.bg__wrapper{
+  background-image: url(top.jpg);
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
 .greeting{
   margin-bottom: 20px;
+  color: #def;
 }
 .greeting__link{
   text-decoration: underline;
+  color: #666;
 }
 .page-heading {
   font-size: 30px;
@@ -133,13 +146,14 @@ a {
 .card__wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   min-height: calc(100vh - 161px);
 }
 .card {
   width: calc((100% - 50px) / 3);
   margin-bottom: 40px;
+  opacity: 0.75;
 }
 .card__img {
   width: 100px;
@@ -149,12 +163,16 @@ a {
 .card__title {
   display: block;
   font-size: 20px;
-  color: #555;
+  color: #999;
   margin-bottom: 8px;
   font-weight: bold;
 }
+.card__title:hover {
+  color: #ccc;
+  transition: 0.4s;
+}
 .card__body {
-  background-color: #bbb;
+  background-color: #334;
   padding: 10px 20px;
   border-radius: 20px;
 }
@@ -301,6 +319,7 @@ td {
 /* フッター */
 
 .footer {
+  width: 100%;
   background-color: #999;
   padding: 10px 0;
 }
