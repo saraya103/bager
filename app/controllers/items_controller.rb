@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @note = Note.find_by(character: params[:note_char])
-    binding.pry
     if @item.save
       redirect_to note_items_path(@note.character)
     else

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= l log.created_at %></td>
+  <td><%= "#{log.name}" %></td>
+  <td><%= "#{log.price}" %></td>
+  <td><%= "#{log.count}" %></td>
+  <td><%= "#{log.condition}" %></td>
+  <td><%= "#{log.memo}" %></td>
+  <td><%= "#{log.buyer}" %></td>
+  <td><%= link_to '詳細', note_log_path(id: log.id) %></td>
+<tr>

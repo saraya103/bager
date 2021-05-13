@@ -89,11 +89,11 @@ has_one :reserve
 |memo          |text       |                             |
 |buyer         |string     |null:false                   |
 |note          |references |null:false, foreign_key:true |
-|item          |references |null:false, foreign_key:true |
+|user          |references |null:false, foreign_key:true |
 
 ### Association
 belongs_to :note
-belongs_to :item
+belongs_to :user
 
 ## reserves テーブル
 

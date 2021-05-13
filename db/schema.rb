@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(version: 2021_05_13_170638) do
     t.text "memo"
     t.string "buyer", null: false
     t.bigint "note_id"
-    t.bigint "item_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_logs_on_item_id"
     t.index ["note_id"], name: "index_logs_on_note_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "note_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_170638) do
   add_foreign_key "items", "users"
   add_foreign_key "lists", "items"
   add_foreign_key "lists", "notes"
-  add_foreign_key "logs", "items"
   add_foreign_key "logs", "notes"
+  add_foreign_key "logs", "users"
   add_foreign_key "note_users", "notes"
   add_foreign_key "note_users", "users"
 end
