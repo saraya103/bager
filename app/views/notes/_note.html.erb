@@ -1,10 +1,13 @@
-<div class="card">
-  <%= link_to image_tag("ノートの画像", class: :card__img ), root_path%>
-  <div class="card__body">
-    <%= link_to "ノートのタイトル", root_path, class: :card__title%>
-    <p class="card__summary">
-      <%= "ノートのキャッチコピー" %>
-    </p>
-    <%= link_to "by ノートの投稿者名", root_path, class: :card__user %>
+<% if user_signed_in? %>
+  <div class="card">
+    <div class="card__body">
+    <p class="card__summary"><%= note.title %></p>
+      <div class="card__title"></div>
+        <%= link_to "#{note.list_name}", note_lists_path(note.character), class: :card__title%>
+        <%= link_to "#{note.item_name}", note_items_path(note.character), class: :card__title%>
+        <%= link_to "#{note.log_name}", note_logs_path(note.character), class: :card__title%>
+        <%= link_to "#{note.reserve_name}", root_path(note.character), class: :card__title%>
+      <%= link_to "所有者 #{current_user.nickname}", root_path, class: :card__user %>
+    </div>
   </div>
-</div>
+<% end %>

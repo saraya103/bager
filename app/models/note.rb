@@ -8,6 +8,7 @@ class Note < ApplicationRecord
     validates :character, uniqueness: { case_sensitive: false }
     validates :password
     validates :owner
+    validates :owner_name
     validates :list_name
     validates :log_name
     validates :reserve_name
