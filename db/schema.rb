@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_082354) do
+ActiveRecord::Schema.define(version: 2021_05_17_065806) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,21 @@ ActiveRecord::Schema.define(version: 2021_05_13_082354) do
     t.index ["note_id"], name: "index_lists_on_note_id"
   end
 
+  create_table "logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "count", null: false
+    t.string "condition"
+    t.text "memo"
+    t.string "buyer", null: false
+    t.bigint "note_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_logs_on_note_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
+  end
+
   create_table "note_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "note_id"
     t.bigint "user_id"
@@ -74,6 +89,12 @@ ActiveRecord::Schema.define(version: 2021_05_13_082354) do
     t.string "log_name", default: "購入履歴", null: false
     t.string "reserve_name", default: "予約一覧", null: false
     t.string "item_name", default: "アイテム一覧", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+  end
+
+  create_table "reserves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -100,6 +121,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_082354) do
   add_foreign_key "items", "users"
   add_foreign_key "lists", "items"
   add_foreign_key "lists", "notes"
+  add_foreign_key "logs", "notes"
+  add_foreign_key "logs", "users"
   add_foreign_key "note_users", "notes"
   add_foreign_key "note_users", "users"
 end

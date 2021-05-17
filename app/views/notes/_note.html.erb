@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card__body">
   <% if user_signed_in? %>
-    <p>TEST CARD </p>
+    <p><%= note.title %></p>
     <%= link_to "#{note.list_name}", note_lists_path(note.character), class: :card__title%>
     <p class="card__summary">
     <%= link_to "#{note.item_name}", note_items_path(note.character), class: :card__title%>
