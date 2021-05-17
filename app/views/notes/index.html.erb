@@ -2,8 +2,10 @@
 <div class="bg__wrapper">
   <div class="inner">
     <div class="card__wrapper">
+      <%= link_to image_tag("logo.png"), root_path unless user_signed_in?%>
+      <% else %>
         <%= render partial: 'note', collection: @notes %>
-        <%= link_to image_tag("logo.png"), root_path unless user_signed_in?%>
+      <% end %>
     </div>
   </div>
 </div>
