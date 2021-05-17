@@ -1,13 +1,10 @@
 <main class="main">
+<div class="bg__wrapper">
   <div class="inner">
-    <% if user_signed_in? %>
-      <div class="greeting">
-        <%= 'こんにちは、' %>
-        <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
-      </div>
-    <% end %>
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでnote一覧を表示する %>
+        <%= render partial: 'note', collection: @notes %>
+        <%= link_to image_tag("logo.png"), root_path unless user_signed_in?%>
     </div>
   </div>
+</div>
 </main>

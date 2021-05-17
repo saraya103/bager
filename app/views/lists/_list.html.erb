@@ -1,0 +1,16 @@
+<tr>
+  <td><%= check_box "itemcheck", "#{list.item.id}" %></td>
+  <td><% if list.item.image.attached? %>
+        <%= link_to image_tag(list.item.image, class: :card__img ), root_path  %>
+      <% else %>
+        <%= image_tag "noimg.png" %>
+      <% end %></td>
+  <td><%= link_to "#{list.item.name}", root_path, class: :card__title%></td>
+  <td><%= link_to "#{list.item.price}", root_path, class: :card__title%></td>
+  <td><%= link_to "#{list.item.count}", root_path, class: :card__title%></td>
+  <td><%= link_to "#{list.item.condition}", root_path, class: :card__title%></td>
+  <td><%= link_to "#{list.item.memo}", root_path, class: :card__title%></td>
+<%#  <td><%= link_to '詳細', note_list_path(id: list.id) %><%# </td> %>
+  <td><%= link_to '完了', note_list_path(id: list.id), method: :patch %></td>
+  <td><%= link_to '取消', note_list_path(id: list.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<tr>
