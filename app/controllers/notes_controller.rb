@@ -19,7 +19,7 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:genre_id, :list_name, :log_name, :reserve_name, :item_name, user_ids:[]).merge(owner: current_user.id)
+    params.require(:note).permit(:genre_id, :list_name, :log_name, :reserve_name, :item_name, user_ids:[]).merge(owner: current_user.id, owner_name: current_user.nickname)
   end
 
   def set_char

@@ -7,7 +7,7 @@
         <%= link_to "#{note.item_name}", note_items_path(note.character), class: :card__title%>
         <%= link_to "#{note.log_name}", note_logs_path(note.character), class: :card__title%>
         <%= link_to "#{note.reserve_name}", root_path(note.character), class: :card__title%>
-      <%= link_to "所有者 #{current_user.nickname}", root_path, class: :card__user %>
+      <%= link_to "所有者 #{note.owner_name}", root_path, class: :card__user %>
     </div>
   </div>
 <% end %>
