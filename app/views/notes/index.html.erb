@@ -3,7 +3,6 @@
   <div class="inner">
     <div class="card__wrapper">
         <%= render partial: 'note', collection: @notes %>
-        <%= link_to image_tag("logo.png"), root_path unless user_signed_in?%>
     </div>
   </div>
 </div>

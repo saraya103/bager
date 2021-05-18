@@ -11,6 +11,7 @@
   </head>
 
   <body>
+  <% if user_signed_in? %>
     <header class="header">
       <div class="inner">
         <div class="nav">
@@ -39,6 +40,7 @@
         </div>
       </div>
     </header>
+    <% end %>
     <div class="yield">
     <%= yield %>
     </div>

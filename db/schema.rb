@@ -84,6 +84,8 @@ ActiveRecord::Schema.define(version: 2021_05_13_170638) do
     t.string "character", null: false
     t.string "password", null: false
     t.integer "owner", null: false
+    t.string "owner_name", null: false
+    t.string "title", default: "新しいノート", null: false
     t.integer "genre_id", default: 1, null: false
     t.string "list_name", default: "登録中のリスト", null: false
     t.string "log_name", default: "購入履歴", null: false
