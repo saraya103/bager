@@ -1,28 +1,34 @@
-<%= form_with model: note, local: true do |f|%>
-  <div class="field">
-    <%= f.label :genre_id, "ジャンル" %><br />
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+<div class="contents row">
+  <div class="container">
+    <%= form_with model: note, local: true do |f|%>
+      <div class="field">
+        <%= f.label :title, "ノートのタイトル" %><br />
+        <%= f.text_field :title, id:"note_list" %>
+      </div>
+      <div class="field">
+        <%= f.label :genre_id, "ジャンル" %><br />
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+      </div>
+      <div class="field">
+        <%= f.label :list_name, "リストのタイトル" %><br />
+        <%= f.text_field :list_name, id:"note_list" %>
+      </div>
+      <div class="field">
+        <%= f.label :log_name, "履歴のタイトル" %><br />
+        <%= f.text_field :log_name, id:"note_log" %>
+      </div>
+      <div class="field">
+        <%= f.label :reserve_name, "予約のタイトル" %><br />
+        <%= f.text_field :reserve_name, id:"note_reserve" %>
+      </div>
+      <div class="field">
+        <%= f.label :item_name, "アイテム表のタイトル" %><br />
+        <%= f.text_field :item_name, id:"note_item" %>
+      </div>
+      <input name="note[user_ids][]" type="hidden" value=<%= current_user.id %>>
+      <div class="actions">
+        <%= f.submit "保存する", class: :form__btn  %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :list_name, "リストのタイトル" %><br />
-    <%= f.text_field :list_name, id:"note_list" %>
-  </div>
-  <div class="field">
-    <%= f.label :log_name, "履歴のタイトル" %><br />
-    <%= f.text_field :log_name, class: :form__text, id:"note_log" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :reserve_name, "予約のタイトル" %><br />
-    <%= f.text_field :reserve_name, class: :form__text, id:"note_reserve" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :item_name, "アイテム表のタイトル" %><br />
-    <%= f.text_field :item_name, class: :form__text, id:"note_item" %>
-  </div>
-  <input name="note[user_ids][]" type="hidden" value=<%= current_user.id %>>
-  <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
-  </div>
-<% end %>
+</div>

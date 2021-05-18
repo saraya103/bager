@@ -116,7 +116,7 @@ a {
 }
 
 .actions{
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .form__btn{
@@ -340,6 +340,7 @@ div.contents.row .success h3 {
 }
 
 form input,
+form select,
 form textarea {
   width: 100%;
   margin: 5px 0 15px;
@@ -381,6 +382,7 @@ form input[type="submit"]:hover {
 .page-heading {
   font-size: 30px;
   margin-bottom: 28px;
+  text-align: center;
 }
 .card__wrapper {
   display: flex;
