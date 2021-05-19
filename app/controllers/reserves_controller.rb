@@ -20,4 +20,7 @@ class ReservesController < ApplicationController
   private
   def reserve_params
   end
+
+  def set_date
+  end
 end

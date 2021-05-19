@@ -220,7 +220,7 @@ Front:
 - belongs_to : user
 - has_one : list
 - has_many : logs
-- belongs_to : reserve
+- has_many : reserves
 <br><br>
 
 ## lists テーブル
@@ -233,7 +233,6 @@ Front:
 ### Association
 - belongs_to :note
 - belongs_to :item
-- has_one :reserve
 <br><br>
 
 ## logs テーブル
@@ -258,12 +257,15 @@ Front:
 
 |Column        |Type       |Options                      |
 |--------------|-----------|-----------------------------|
+|date          |date       |null:false                   |
+|next_id       |integer    |null:false                   |
+|once          |integer    |null:false                   |
 |note          |references |null:false, foreign_key:true |
-|list          |references |null:false, foreign_key:true |
+|item          |references |null:false, foreign_key:true |
 
 ### Association
 - belongs_to :note
-- belongs_to :list
+- belongs_to :item
 <br><br>
 
 ## comments テーブル
