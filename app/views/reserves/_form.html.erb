@@ -1,0 +1,43 @@
+<%= form_with model: [note, item], local: true do |f|%>
+
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+    <select name="item_id">
+      <option value="">登録するアイテムを選択してください</option>
+        <% Item.where(note_id: @note.id).each do |item| %>
+        <option value=<%= item.id %>><%= item.name %></option>
+        <% end %>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre_id, "次回追加予定日" %><br />
+    <%= f.collection_select(:next_id, Next.all, :id, :name, {}, {}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre_id, "繰り返し" %><br />
+    <%= f.collection_select(:genre_id, Once.all, :id, :name, {}, {}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :count, "個数" %><br />
+    <%= f.text_field :count, class: :form__text, id:"item_count" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :condition, "条件" %><br />
+    <%= f.text_field :condition, class: :form__text, id:"item_condition" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :memo, "備考" %><br />
+    <%= f.text_area :memo, class: :form__text, id:"item_memo" %>
+  </div>
+
+  <input name="note_char" type="hidden" value=<%= note.character %>>
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

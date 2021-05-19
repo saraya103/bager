@@ -1,8 +1,12 @@
 class ReservesController < ApplicationController
   def index
+    @reserves = Reserve.includes(:note)
+    @reserve = Reserve.new
+    @note = Note.find_by(character: params[:note_character])
   end
 
   def new
+    @reserve = Reserve.new
   end
 
   def create
@@ -22,5 +26,8 @@ class ReservesController < ApplicationController
   end
 
   def set_date
+  end
+
+  def check_once
   end
 end
