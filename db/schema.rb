@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2021_05_13_221648) do
   create_table "reserves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.integer "next_id", default: 0, null: false
-    t.integer "once", default: 0, null: false
+    t.integer "once_id", default: 0, null: false
     t.bigint "note_id"
     t.bigint "item_id"
     t.datetime "created_at", precision: 6, null: false
