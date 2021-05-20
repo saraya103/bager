@@ -259,7 +259,7 @@ Front:
 |--------------|-----------|-----------------------------|
 |date          |date       |null:false                   |
 |next_id       |integer    |null:false                   |
-|once          |integer    |null:false                   |
+|once_id       |integer    |null:false                   |
 |note          |references |null:false, foreign_key:true |
 |item          |references |null:false, foreign_key:true |
 
