@@ -11,15 +11,15 @@ class Reserve < ApplicationRecord
     validates :once_id
   end
 
-  def date_check
-    self.each do |reserve|
-      if self.date <= Date.today
+  def self.date_check
+    all.each do |reserve|
+      if reserve.date <= Date.today
         if List.find_by(item_id: reserve.item_id) == nil
           @list = List.new
-          @list.note_id = self.note_id
-          @list.item_id = self.item_id
+          @list.note_id = reserve.note_id
+          @list.item_id = reserve.item_id
           @list.save
-          check_once
+          reserve.check_once
         end
       end
     end
