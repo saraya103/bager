@@ -18,39 +18,14 @@
       </thead>
       <tbody>
         <div>
-        <%#  <%= form_with model: [@note, @list], method: :delete,local: true do |f| %>
             <%= render partial: 'reserve', collection: @reserves %>
         </div>
       </tbody>
     </table>
-    <%# link_to '削除', note_list_path(id: @lists), method: :delete %>
-        <%# button_to "送信", "note_item_path(@note.character)", { method: :delete, params: {itemcheck: @list.item} } %>
-      <%# end %>
   </div>
 </main>
 <div class="main">
   <div class="inner">
-<% 
-=begin
-%>
-    <div class="form__wrapper">
-      <h2 class="page-heading">予約登録</h2>
-      <%=form_with model: [@note, @reserve], local: true do |f|%>
-        <select name="item_id">
-        <option value="">登録するアイテムを選択してください</option>
-          <% Item.where(note_id: @note.id).each do |item| %>
-            <option value=<%= item.id %>><%= item.name %></option>
-          <% end %>
-        </select>
-        <input name="note_char" type="hidden" value=<%= @note.character %>>
-        <div class="actions">
-          <%= f.submit class: 'chat-room-form__action-btn'%>
-        </div>
-      <% end %>
-    </div>
-<%
-=end
-%>
     <%= render partial: "form", locals: { note: @note, reserve: @reserve} %>
   </div>
 </div>

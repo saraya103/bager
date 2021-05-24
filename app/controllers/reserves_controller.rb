@@ -22,9 +22,8 @@ class ReservesController < ApplicationController
   end
 
   def show
-  end
-
-  def edit
+    @reserve = Reserve.find(params[:id])
+    @note = Note.find_by(character: params[:note_character])
   end
 
   def update
