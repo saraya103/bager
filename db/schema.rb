@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_170638) do
+ActiveRecord::Schema.define(version: 2021_05_13_221648) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -95,6 +95,18 @@ ActiveRecord::Schema.define(version: 2021_05_13_170638) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reserves", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "next_id", default: 0, null: false
+    t.integer "once_id", default: 0, null: false
+    t.bigint "note_id"
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_reserves_on_item_id"
+    t.index ["note_id"], name: "index_reserves_on_note_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -121,4 +133,6 @@ ActiveRecord::Schema.define(version: 2021_05_13_170638) do
   add_foreign_key "logs", "users"
   add_foreign_key "note_users", "notes"
   add_foreign_key "note_users", "users"
+  add_foreign_key "reserves", "items"
+  add_foreign_key "reserves", "notes"
 end

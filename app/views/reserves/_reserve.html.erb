@@ -1,0 +1,18 @@
+<tr>
+  <td><%= "#{reserve.date}" %></td>
+  <td><% if reserve.item.image.attached? %>
+        <%= image_tag(reserve.item.image, class: :card__img ) %>
+      <% else %>
+        <%= image_tag "noimg.png" %>
+      <% end %></td>
+  <td><%= "#{reserve.item.name}" %></td>
+  <td><%= "#{reserve.item.price}" %></td>
+  <td><%= "#{reserve.item.count}" %></td>
+  <td><%= "#{reserve.item.condition}" %></td>
+  <td><%= "#{reserve.item.memo}" %></td>
+  <td><%= "#{reserve.next.name}" %></td>
+  <td><%= "#{reserve.once.name}" %></td>
+<%#  <td><%= link_to '詳細', note_list_path(id: list.id) %><%# </td> %>
+  <td><%= link_to '追加', note_reserf_path(id: reserve.id), method: :patch %></td>
+  <td><%= link_to '取消', note_reserf_path(id: reserve.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<tr>

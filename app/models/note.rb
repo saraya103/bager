@@ -4,6 +4,7 @@ class Note < ApplicationRecord
   has_many :items, dependent: :destroy
   has_one :list, dependent: :destroy
   has_one :log, dependent: :destroy
+  has_one :reserve, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
 

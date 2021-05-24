@@ -1,0 +1,26 @@
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+        <%= @reserve.item.name %>
+      </p>
+      <div class="prototype__image">
+        <% if @reserve.item.image.attached? %>
+        <%= link_to image_tag(@reserve.item.image), root_path  %>
+      <% else %>
+        <%= image_tag "noimg.png" %>
+      <% end %>
+      </div>
+      <div class="prototype__body">
+        <div class="prototype__detail">
+          <p class="detail__title"><%= "価格：#{@reserve.item.price}" %></p>
+          <p class="detail__title"><%= "個数：#{@reserve.item.count}" %></p>
+          <p class="detail__title"><%= "条件：#{@reserve.item.condition}" %></p>
+          <p class="detail__title"><%= "備考：#{@reserve.item.memo}" %></p>
+          </p>
+          <%= link_to "一覧へ戻る", note_reserves_path(@reserve.note.character)  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

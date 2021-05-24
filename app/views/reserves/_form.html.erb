@@ -1,0 +1,28 @@
+<%= form_with model: [note, reserve], local: true do |f|%>
+
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+    <select name="reserve[item_id]">
+      <option value="">登録するアイテムを選択してください</option>
+        <% Item.where(note_id: note.id).each do |item| %>
+        <option value=<%= item.id %>><%= item.name %></option>
+        <% end %>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= f.label :next_id, "次回追加予定日" %><br />
+    <%= f.collection_select(:next_id, Next.all, :id, :name, {}, {}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :once_id, "繰り返し" %><br />
+    <%= f.collection_select(:once_id, Once.all, :id, :name, {}, {}) %>
+  </div>
+
+  <input name="note_char" type="hidden" value=<%= note.character %>>
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
