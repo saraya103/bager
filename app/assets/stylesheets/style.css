@@ -485,8 +485,8 @@ td {
 }
 .prototype__manage{
   display: flex;
-  justify-content: center;
-  padding-top: 16px;
+  justify-content: space-around;
+  padding: 14px 0;
 }
 .prototype__btn{
   display: block;
