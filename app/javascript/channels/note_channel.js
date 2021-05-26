@@ -11,7 +11,7 @@ $(function() {
     },
 
     received: function(data) {
-      return $('#messages').append(data['message']);
+      return $('#messages').prepend(data['message']);
     },
 
     speak: function(message) {

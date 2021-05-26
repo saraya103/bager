@@ -4,3 +4,5 @@ ja:
       default: '%Y/%m/%d'
       long: '%Y年%m月%d日(%a)'
       short: '%m/%d'
+      chat_today: '%H:%M:%S'
+      chat_other: '%m/%d %H:%M'
