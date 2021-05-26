@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_015934) do
+ActiveRecord::Schema.define(version: 2021_05_26_023950) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_015934) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
-    t.bigint "note_id"
-    t.bigint "item_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_comments_on_item_id"
-    t.index ["note_id"], name: "index_comments_on_note_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,6 +69,16 @@ ActiveRecord::Schema.define(version: 2021_05_25_015934) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["note_id"], name: "index_logs_on_note_id"
     t.index ["user_id"], name: "index_logs_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "note_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_messages_on_note_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "note_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -135,14 +135,14 @@ ActiveRecord::Schema.define(version: 2021_05_25_015934) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "items"
-  add_foreign_key "comments", "notes"
   add_foreign_key "items", "notes"
   add_foreign_key "items", "users"
   add_foreign_key "lists", "items"
   add_foreign_key "lists", "notes"
   add_foreign_key "logs", "notes"
   add_foreign_key "logs", "users"
+  add_foreign_key "messages", "notes"
+  add_foreign_key "messages", "users"
   add_foreign_key "note_users", "notes"
   add_foreign_key "note_users", "users"
   add_foreign_key "reserves", "items"
