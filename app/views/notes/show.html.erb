@@ -1,63 +1,10 @@
-<main class="main">
-  <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
-        <%= @note.list_name %>
-      </p>
-      <%= link_to "所有者 #{@note.user.nickname}", root_path, class: :note__user %>
-      <% if @note.user.id == current_user.id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
-          <%= link_to "削除する", root_path, class: :prototype__btn %>
-        </div>
-      <% end %>
-      <div class="note__body">
-        <div class="note__detail">
-          <p class="detail__title">リスト：</p>
-          <p class="detail__message">
-          <%= link_to @note.list_name, root_path, class: :note__user %>
-          </p>
-        </div>
-        <div class="note__detail">
-          <p class="detail__title">履歴：</p>
-          <p class="detail__message">
-          <%= link_to @note.log_name, root_path, class: :note__user %>
-          </p>
-        </div>
-        <div class="note__detail">
-          <p class="detail__title">予約：</p>
-          <p class="detail__message">
-          <%= link_to @note.reserve_name, root_path, class: :note__user %>
-          </p>
-        </div>
-          <div class="note__detail">
-          <p class="detail__title">アイテム：</p>
-          <p class="detail__message">
-          <%= link_to @note.item_name, root_path, class: :note__user %>
-          </p>
-        </div>
-      </div>
-      <div class="prototype__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%# <%= form_with model: モデル名,local: true do |f|%>
-            <div class="field">
-              <%# <%= f.label :hoge, "コメント" %><br />
-              <%# <%= f.text_field :hoge, id:"comment_text" %>
-            </div>
-            <div class="actions">
-              <%# <%= f.submit "送信する", class: :form__btn  %>
-            </div>
-          <%# <% end %> 
-        <%# // ログインしているユーザーには上記を表示する %>
-        <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
-            <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
-            </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
-        </ul>
-      </div>
+<div class="inner">
+  <div class="overflow">
+  <h1 id="top"><%= "#{@note.title}のメッセージ" %></h1>
+    <div id='messages' data-note_id="<%= @note.id %>">
+      <%= render @messages %>
     </div>
   </div>
-</main>
+  <%= label_tag :content, 'メッセージを入力:' %>
+  <%= text_field_tag :content, nil, data: { behavior: 'note_speaker' } %>
+</div>

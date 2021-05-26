@@ -1,0 +1,23 @@
+<% if message.user_id == current_user.id %>
+  <div class="message mine">
+<% else %>
+  <div class="message">
+<% end %>
+  <div class="message_set">
+    <div class="message_name">
+      <%= message.user.nickname %>
+
+    </div>
+    <div class="message_date">
+      <% if message.created_at >= Date.today %>
+        <%= l message.created_at,format: :chat_today %>
+      <% else %>
+        <%= l message.created_at,format: :chat_other %>
+      <% end %>
+    </div>
+  </div>
+        <div class="message_text">
+        <%= message.content %>
+      </div>
+  <%= image_tag message.image.variant(resize: '500x500'), class: 'message-image' if message.image.attached? %>
+</div>

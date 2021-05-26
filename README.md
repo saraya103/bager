@@ -165,6 +165,7 @@ Front:
 
 ### Association
 - has_many :notes, through: :note_users
+- has_many :note_users
 - has_many :items
 - has_many :comments
 - has_many :note_users
@@ -174,9 +175,11 @@ Front:
 
 |Column          |Type       |Options                 |
 |----------------|-----------|------------------------|
-|path            |string     |null:false, unique:true |
+|character       |string     |null:false, unique:true |
 |password        |string     |null:false              |
 |owner           |integer    |null:false              |
+|owner_name      |string     |null:false              |
+|title           |string     |null:false              |
 |genre_id        |integer    |null:false              |
 |list_name       |string     |null:false              |
 |log_name        |string     |null:false              |
@@ -185,6 +188,7 @@ Front:
 
 ### Association
 - has_many :users, through: :note_users
+- has_many :note_users
 - has_one :list
 - has_one :log
 - has_one :reserve

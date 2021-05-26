@@ -17,6 +17,11 @@ class NotesController < ApplicationController
     end
   end
 
+  def show
+    @note = Note.find_by(character: params[:character])
+    @messages = @note.messages.order("created_at DESC")
+  end
+
   private
   def note_params
     params.require(:note).permit(:title, :genre_id, :list_name, :log_name, :reserve_name, :item_name, user_ids:[]).merge(owner: current_user.id, owner_name: current_user.nickname)

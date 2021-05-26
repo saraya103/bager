@@ -40,7 +40,6 @@ a {
   width: 100%;
   background-color: black;
   opacity: 0.7;
-  margin-bottom: 48px;
   padding: 10px 0;
 }
 .inner {
@@ -339,6 +338,7 @@ div.contents.row .success h3 {
   *zoom: 1;
 }
 
+input,
 form input,
 form select,
 form textarea {
@@ -485,8 +485,8 @@ td {
 }
 .prototype__manage{
   display: flex;
-  justify-content: center;
-  padding-top: 16px;
+  justify-content: space-around;
+  padding: 14px 0;
 }
 .prototype__btn{
   display: block;
@@ -557,6 +557,48 @@ td {
   justify-content: space-between;
   align-items: center;
 }
+/* メッセージページ */
+.overflow {
+  height: calc(100vh - 208px);
+  overflow-y: scroll;
+}
+
+.message {
+  padding-top: 10px;
+  margin-bottom: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mine {
+  background-color: #eee;
+}
+
+.message_set {
+  display: flex;
+  padding-left: 15px;
+}
+
+.message_name {
+  color: #434A54;
+  font-size: 18px;
+}
+
+.message_date {
+  color: #999;
+  font-size: 12px;
+  margin: 6px 0 0 10px;
+}
+
+.message_text {
+  color: #666;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 0 20px 15px 30px;
+}
+
 /* フッター */
 
 .footer {
