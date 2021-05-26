@@ -19,7 +19,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find_by(character: params[:character])
-    @comments = @note.comments
+    @messages = @note.messages
   end
 
   private

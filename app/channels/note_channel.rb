@@ -1,12 +1,12 @@
 class NoteChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "note_channel"
+    stream_from "note_channel_#{params['note']}" 
   end
 
   def unsubscribed
   end
 
   def speak(data)
-    ActionCable.server.broadcast 'note_channel', message: data['message']
+    Message.create! content: data['message'], user_id: current_user.id, note_id: params['note']
   end
 end

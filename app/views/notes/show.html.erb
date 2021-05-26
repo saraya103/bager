@@ -1,7 +1,6 @@
-<p><%= "#{@note.title}のトークルーム" %></p>
-
-<div id="messages">
-  <%= render "comment", collection: @comments %>
+<div id='messages' data-note_id="<%= @note.id %>">
+  <%= render @messages %>
 </div>
+
 <%= label_tag :content, 'Say something:' %>
 <%= text_field_tag :content, nil, data: { behavior: 'note_speaker' } %>

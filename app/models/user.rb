@@ -15,5 +15,5 @@ class User < ApplicationRecord
   has_many :note_users, dependent: :destroy
   has_many :notes, through: :note_users
   has_many :items
-  has_many :comments
+  has_many :messages
 end
