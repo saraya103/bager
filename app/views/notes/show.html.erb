@@ -1,10 +1,18 @@
 <div class="inner">
-  <div class="overflow">
-  <h1 id="top"><%= "#{@note.title}のメッセージ" %></h1>
-    <div id='messages' data-note_id="<%= @note.id %>">
-      <%= render @messages %>
-    </div>
+  <h1 id="top"><%= "#{@note.title}の招待ページ" %></h1>
+  <br>
+  <div class="page-heading">
+  <p>「ノートに参加」ページで以下の情報を入力してください。</p>
+  <br>
+    <table><tr>
+        <td colspan="2"></td>
+      </tr></tr>
+        <td>ID</td>
+        <td><%= "#{@note.character.slice!(0..3)} #{@note.character.slice!(0..3)} #{@note.character.slice!(0..3)}" %></td>
+      </tr><tr>
+        <td>PASS</td>
+        <td><%= "#{@note.password.slice!(0..2)} #{@note.password.slice!(0..2)}" %></td>
+      </tr>
+    </table>
   </div>
-  <%= label_tag :content, 'メッセージを入力:' %>
-  <%= text_field_tag :content, nil, data: { behavior: 'note_speaker' } %>
 </div>
