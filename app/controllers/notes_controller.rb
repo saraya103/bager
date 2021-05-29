@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @notes = User.find(current_user.id).notes
   end
