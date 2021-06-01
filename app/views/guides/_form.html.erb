@@ -3,19 +3,14 @@
   <%= render 'layouts/error_messages', model: f.object %>
 
   <div class="field">
-    <%= f.label :note_id, "ID" %><br />
-    <%= f.text_field :id, class: :form__text, id:"note_id" %>
+    <%= f.label :id, "ID" %><br />
+    <%= f.text_field :id, id:"note_id" %>
   </div>
-<%
-=begin
-%>
   <div class="field">
-    <%= f.label :note_pass, "PASS" %><br />
-    <%= f.text_field :note_pass, class: :form__text, id:"note_pass" %>
+    <%= f.label :password, "PASS" %><br />
+    <%= f.text_field :password, id:"note_pass" %>
   </div>
-<%
-=end
-%>
+
   <div class="actions">
     <%= f.submit "保存する", method: :post, class: :form__btn  %>
   </div>

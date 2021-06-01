@@ -1,8 +1,21 @@
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">他ユーザーのノートに参加する</h2>
+<div class="bg__wrapper">
+  <div class="contents row">
+    <div class="container">
+      <% if current_user.stop == 3 %>
+        <h2 class="page-heading">エラー：規定回数の停止</h2>
+        <p>期間内に複数回の登録停止が発生した為、参加機能を停止しました。</p>
+        <p>現在所持しているノートの閲覧・編集は可能ですので、</p>
+        <p>引き続きそれらの昨日はご利用いただけます。</p>
+      <% elsif current_user.count == 5 %>
+        <h2 class="page-heading">エラー：規定回数の失敗</h2>
+        <p>短期間に複数回の登録失敗が発生した為、</p>
+        <p>一時的に登録停止中です。</p>
+        <br>
+        <p>お手数ですが、翌日午前5時以降に再度お手続きください。</p>
+      <% else %>
+        <h2 class="page-heading">他ユーザーのノートに参加する</h2>
         <%= render partial: "form", locals: { note: @note } %>
+      <% end %>
     </div>
   </div>
 </div>
