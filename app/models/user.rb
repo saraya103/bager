@@ -16,4 +16,20 @@ class User < ApplicationRecord
   has_many :notes, through: :note_users
   has_many :items
   has_many :messages
+
+  def self.count_reset
+    all.each do |user|
+      if user.count > 0 
+        user.update_attribute(:count, 0)
+      end
+    end
+  end
+
+  def self.stop_down
+    all.each do |user|
+      if user.stop > 0 
+        user.update_attribute(:stop, user.stop - 1)
+      end
+    end
+  end
 end

@@ -39,12 +39,10 @@ class GuidesController < ApplicationController
   end
 
   def count_check
-    @user.count += 1
-    if @user.count == 5
-      @user.stop +=1
-      @user.update_attribute(:stop, @user.stop )
+    if @user.count == 4
+      @user.update_attribute(:stop, @user.stop + 1 )
     end
-    @user.update_attribute(:count, @user.count )
+    @user.update_attribute(:count, @user.count + 1 )
     redirect_to new_guide_path
   end
 end
