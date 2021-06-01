@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'guides#index'
-  resources :guides, only: [:index, :edit, :update, :destroy]
+  resources :guides, only: [:index, :new, :create]
   resources :notes, only: [:index, :new, :create, :show], param: :character do
     resources :items
     resources :lists, only: [:index, :new, :create, :update, :destroy]
