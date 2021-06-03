@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @note = Note.find_by(character: params[:note_character])
     @lists = List.where(note_id: @note.id)
