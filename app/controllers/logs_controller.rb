@@ -1,7 +1,7 @@
 class LogsController < ApplicationController
   def index
-    @logs = Log.includes(:user)
     @note = Note.find_by(character: params[:note_character])
+    @logs = Log.where(note_id: @note.id)
   end
 
   def show

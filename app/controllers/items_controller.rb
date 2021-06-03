@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:user)
     @note = Note.find_by(character: params[:note_character])
+    @items = Item.where(note_id: @note.id)
   end
 
   def new

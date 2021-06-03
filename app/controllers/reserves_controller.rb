@@ -1,8 +1,8 @@
 class ReservesController < ApplicationController
   def index
-    @reserves = Reserve.includes(:note)
-    @reserve = Reserve.new
     @note = Note.find_by(character: params[:note_character])
+    @reserves = Reserve.where(note_id: @note.id)
+    @reserve = Reserve.new
   end
 
   def new

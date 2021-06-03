@@ -1,8 +1,8 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.includes(:note)
-    @list = List.new
     @note = Note.find_by(character: params[:note_character])
+    @lists = List.where(note_id: @note.id)
+    @list = List.new
   end
 
   def new 
