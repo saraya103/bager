@@ -45,17 +45,17 @@
     <script>
       $(function(){
         setInterval(function() {
-        $(".alert").slideUp(1000);
-        $(".notice").slideUp(1000);
-        }, 4000);
+        $(".alert").fadeOut(1000);
+        $(".notice").fadeOut(1000);
+        }, 3000);
       });
     </script>
-    <div class="notifications">
+    <div class="yield">
+        <div class="notifications">
     <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: key) %>
     <% end %>
     </div>
-    <div class="yield">
     <%= yield %>
     </div>
     <footer class="footer">
