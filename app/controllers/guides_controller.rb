@@ -32,7 +32,7 @@ class GuidesController < ApplicationController
       count_check
     elsif @note_id.id == @note_pass.id
       @user.notes << @note_id
-      redirect_to notes_path
+      redirect_to notes_path, notice: 'ノートに参加しました！'
     else
       count_check
     end
@@ -43,6 +43,6 @@ class GuidesController < ApplicationController
       @user.update_attribute(:stop, @user.stop + 1 )
     end
     @user.update_attribute(:count, @user.count + 1 )
-    redirect_to new_guide_path
+    redirect_to new_guide_path, alert: 'エラー：正しい情報を入力してください。'
   end
 end
