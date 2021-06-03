@@ -101,6 +101,18 @@ a {
   color: #fff;
   background: #adf;
 }
+
+.notifications {
+  color: white;
+  text-align: center;  
+}
+.notice {
+  background-color: deepSkyBlue;
+}
+.alert {
+  background-color: coral;
+}
+
 /* フォーム周り */
 .form__wrapper{
   min-height: calc(100vh - 161px);

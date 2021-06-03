@@ -1,0 +1,17 @@
+<%= form_for @note, url: guides_path do |f|%>
+
+  <%= render 'layouts/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :id, "ID" %><br />
+    <%= f.text_field :id, id:"id" %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "PASS" %><br />
+    <%= f.text_field :password, id:"pass" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", method: :post, class: :form__btn  %>
+  </div>
+<% end %>

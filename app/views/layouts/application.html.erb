@@ -29,7 +29,8 @@
           <% if user_signed_in? %>
             <div class="head__box">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: :nav__logout %>
-              <%= link_to "New Note", new_note_path, class: :nav__btn %>
+              <%= link_to "新規作成", new_note_path, class: :nav__btn %>
+              <%= link_to "ノートに参加", new_guide_path, class: :nav__btn %>
             </div>
           <% else %>
             <div class="herd__box">
@@ -41,6 +42,19 @@
       </div>
     </header>
     <% end %>
+    <script>
+      $(function(){
+        setInterval(function() {
+        $(".alert").slideUp(1000);
+        $(".notice").slideUp(1000);
+        }, 4000);
+      });
+    </script>
+    <div class="notifications">
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: key) %>
+    <% end %>
+    </div>
     <div class="yield">
     <%= yield %>
     </div>

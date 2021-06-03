@@ -1,4 +1,7 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :owner_check, only: :show
+
   def index
     @notes = User.find(current_user.id).notes
   end
@@ -18,11 +21,14 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.find_by(character: params[:character])
-    @messages = @note.messages.order("created_at DESC")
   end
 
   private
+  def owner_check
+    @note = Note.find_by(character: params[:character])
+    redirect_to root_path unless @note.owner == current_user.id
+  end
+
   def note_params
     params.require(:note).permit(:title, :genre_id, :list_name, :log_name, :reserve_name, :item_name, user_ids:[]).merge(owner: current_user.id, owner_name: current_user.nickname)
   end
