@@ -55,9 +55,9 @@ Front:
  デプロイが完了次第記載予定です
  <br><br>
 
-## テスト用アカウント
-* ID
-* PASS
+## BASIC認証
+* ID: admin
+* PASS: 2105
 <br><br>
 
 # 利用方法
