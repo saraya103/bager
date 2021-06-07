@@ -384,7 +384,7 @@ form input[type="submit"]:hover {
 /* メイン */
 
 .bg__wrapper{
-  background-image: url(/images/top.jpg);
+  background-image: url("/images/top.jpg");
   width: 100%;
   height: auto;
   background-size: cover;
