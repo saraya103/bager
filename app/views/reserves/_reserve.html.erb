@@ -3,7 +3,7 @@
   <td><% if reserve.item.image.attached? %>
         <%= image_tag(reserve.item.image, class: :card__img ) %>
       <% else %>
-        <%= image_tag "/images/noimg.png" %>
+        <%= image_tag '/images/noimg.png' %>
       <% end %></td>
   <td><%= "#{reserve.item.name}" %></td>
   <td><%= "#{reserve.item.price}" %></td>

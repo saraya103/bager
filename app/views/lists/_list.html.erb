@@ -3,7 +3,7 @@
   <td><% if list.item.image.attached? %>
         <%= link_to image_tag(list.item.image, class: :card__img ), root_path  %>
       <% else %>
-        <%= image_tag "/images/noimg.png" %>
+        <%= image_tag '/images/noimg.png' %>
       <% end %></td>
   <td><%= link_to "#{list.item.name}", root_path, class: :card__title%></td>
   <td><%= link_to "#{list.item.price}", root_path, class: :card__title%></td>

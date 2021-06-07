@@ -384,9 +384,9 @@ form input[type="submit"]:hover {
 /* メイン */
 
 .bg__wrapper{
-  background-image: url("/images/top.jpg");
   width: 100%;
   height: auto;
+  background-image: url("/images/top.jpg");
   background-size: cover;
   padding: 20px 0;
 }
