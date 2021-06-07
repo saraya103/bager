@@ -74,3 +74,4 @@ gem 'whenever', require: false
 gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'
+gem "aws-sdk-s3", require: false
