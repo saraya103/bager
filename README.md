@@ -52,13 +52,14 @@ Front:
 <br><br>
 
 # URL
- デプロイが完了次第記載予定です
+ http://6ager.com/
  <br><br>
-
+<!--
 ## BASIC認証
 * ID: admin
 * PASS: 2105
 <br><br>
+-->
 
 # 利用方法
 * **サインアップ**
