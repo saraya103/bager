@@ -26,3 +26,4 @@ end
 # 実行： bundle exec whenever  --update-crontab
 # 停止： bundle exec whenever  --clear-crontab
 # 確認： crontab -l
+# 確認(本番環境): RAILS_ENV=production crontab  -l
