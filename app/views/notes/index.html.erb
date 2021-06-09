@@ -2,7 +2,27 @@
 <div class="bg__wrapper">
   <div class="inner">
     <div class="card__wrapper">
-        <%= render partial: 'note', collection: @notes %>
+      <% if @notes == [] %>
+        <div class="card">
+          <div class="card__body">
+            <p class="card__summary">ＢＡＧＥＲへ<br>ようこそ！</p>
+            <br>
+            <div class="card__title">
+              ノート（メモ機能のセット）を作成・参加すると、<br>
+              こちらに表示されます。<br><br>
+              まずは「新規作成」から<br>
+              作成してみましょう。
+            </div>
+            <br>
+            <center>
+            <%= link_to "新しいノートを作成！", new_note_path, class: :nav__btn %>
+            </center><br>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= render partial: 'note', collection: @notes %>
+    <% end %>
     </div>
   </div>
 </div>
