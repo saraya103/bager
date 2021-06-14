@@ -2,7 +2,55 @@
   <div class="inner">
     <div class="form__wrapper">
       <h2 class="page-heading">ノート編集</h2>
-      <%# 部分テンプレートでフォームを表示する %>
+<div class="contents row">
+  <div class="container">
+    <%= form_with model: @note, local: true do |f|%>
+      <div class="field">
+        <%= f.label :title, "ノートのタイトル" %><br />
+        <%= f.text_field :title, id:"note_list" %>
+      </div>
+      <div class="field">
+        <%= f.label :genre_id, "ジャンル" %><br />
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {}) %>
+      </div>
+      <div class="field">
+        <%= f.label :list_name, "リストのタイトル" %><br />
+        <%= f.text_field :list_name, id:"note_list" %>
+      </div>
+      <div class="field">
+        <%= f.label :log_name, "履歴のタイトル" %><br />
+        <%= f.text_field :log_name, id:"note_log" %>
+      </div>
+      <div class="field">
+        <%= f.label :reserve_name, "予約のタイトル" %><br />
+        <%= f.text_field :reserve_name, id:"note_reserve" %>
+      </div>
+      <div class="field">
+        <%= f.label :item_name, "アイテム表のタイトル" %><br />
+        <%= f.text_field :item_name, id:"note_item" %>
+      </div>
+      <div class="field">
+        <%= f.label :owner, "ノートの管理者(取扱注意)" %><br />
+        <div class="guide">
+          <input type="radio" id="hide" name="main" checked="checked">変更しない　
+          <input type="radio" id="disp" name="main" >変更する
+        </div>
+        <div id="sub-form" style="display: none;">
+          <select name="owner" id="owner-id">
+          <option value=<%= current_user.id %>><%= current_user.nickname %></option>
+          <% @note.users.where.not(id: current_user.id).each do |user| %>
+          <option value=<%= user.id %>><%= user.nickname %></option>
+          <% end %>
+        </select>
+        </div>
+      </div>
+      <input name="note_char" type="hidden" value=<%= @note.character %>>
+      <div class="actions">
+        <%= f.submit "保存する", class: :form__btn  %>
+      </div>
+    <% end %>
+  </div>
+</div>
     </div>
   </div>
 </div>
