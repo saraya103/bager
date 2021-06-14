@@ -9,18 +9,13 @@
         <%= link_to "#{note.reserve_name}", note_reserves_path(note.character), class: :card__title%>
         <%= link_to "メッセージ", note_messages_path(note.character), class: :card__title%>
         <%= link_to "所有者 #{note.owner_name}", root_path, class: :card__user %>
-<%
-=begin
-%>
         <% if note.owner == current_user.id %>
         <div class="prototype__manage">
-          <%= link_to "編集", root_path, class: :nav__btn %>
+          <%= link_to "招待", note_path(note.character), class: :nav__btn %>
+          <%= link_to "編集", edit_note_path(note.character), class: :nav__btn %>
           <%= link_to "削除", root_path, class: :nav__btn %>
           </div>
       <% end %>
-<%
-=end 
-%>
     </div>
   </div>
 <% end %>
