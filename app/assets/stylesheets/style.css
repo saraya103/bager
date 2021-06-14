@@ -357,8 +357,8 @@ div.contents.row .success h3 {
   *zoom: 1;
 }
 
-input,
-form input,
+input:not([type=radio]),
+form input:not([type=radio]),
 form select,
 form textarea {
   width: 100%;
@@ -380,6 +380,7 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
   background-color: #84d3ef;
 }
+
 
 /* メイン */
 
