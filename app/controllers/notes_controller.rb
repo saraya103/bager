@@ -38,6 +38,8 @@ class NotesController < ApplicationController
   end
 
   def destroy
+    @note.destroy
+    redirect_to notes_path
   end
 
   private
