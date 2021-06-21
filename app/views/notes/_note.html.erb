@@ -11,9 +11,9 @@
         <%= link_to "所有者 #{note.owner_name}", root_path, class: :card__user %>
         <% if note.owner == current_user.id %>
         <div class="prototype__manage">
-          <%= link_to "招待", note_path(note.character), class: :nav__btn %>
-          <%= link_to "編集", edit_note_path(note.character), class: :nav__btn %>
-          <%= link_to "削除", note_path(note.character), method: :delete, data: { confirm: '対象ノートの全機能が削除されます、本当によろしいですか？' }, class: :nav__btn %>
+          <%= link_to "招待", note_path(note.character), class: :card__btn %>
+          <%= link_to "編集", edit_note_path(note.character), class: :card__btn %>
+          <%= link_to "削除", note_path(note.character), method: :delete, data: { confirm: '対象ノートの全機能が削除されます、本当によろしいですか？' }, class: %w(card__btn delete__btn) %>
           </div>
       <% end %>
     </div>

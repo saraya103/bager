@@ -38,8 +38,7 @@ a {
 
 .header {
   width: 100%;
-  background-color: black;
-  opacity: 0.7;
+  background-color:#112;
   padding: 10px 0;
 }
 .inner {
@@ -57,7 +56,7 @@ a {
 }
 .nav__btn{
   display: inline-block;
-  padding: 0.6em 2em;
+  padding: 0.6em 1.5em;
   font-size: 0.8em;
   color: #ddd;
   text-decoration: none;
@@ -69,6 +68,7 @@ a {
 .nav__btn:hover{
   color: #fff;
   background: #888;
+  border: 1px #aaa solid;
 }
 
 .nav__logout{
@@ -392,7 +392,6 @@ form input[type="submit"]:hover {
   padding: 20px 0;
 }
 .greeting{
-  margin-bottom: 20px;
   color: #def;
 }
 .greeting__link{
@@ -424,30 +423,52 @@ form input[type="submit"]:hover {
 .card__title {
   display: block;
   font-size: 20px;
-  color: #999;
+  color: #888;
   margin-bottom: 8px;
   font-weight: bold;
 }
 .card__title:hover {
-  color: #ccc;
+  color: #444;
   transition: 0.4s;
 }
 .card__body {
-  background-color: #334;
+  background-color: #ddd;
   padding: 10px 20px;
   border-radius: 20px;
 }
 .card__summary {
   font-size: 36px;
   text-align: center;
-  color:white;
+  color: #222;
 }
 .card__user {
   display: block;
   font-size: 12px;
-  color: white;
+  color: #666;
   text-align: right;
   text-decoration: underline;
+}
+
+.card__btn{
+  display: inline-block;
+  padding: 0.6em 2.5em;
+  font-size: 0.8em;
+  color: #555;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #888 solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+}
+.card__btn:hover{
+  color: #048;
+  background: #acf;
+  border: 1px #08f solid;
+}
+.delete__btn:hover{
+  color: #800;
+  background: #f88;
+  border: 1px #800 solid;
 }
 
 input[type=checkbox] {
@@ -623,7 +644,7 @@ td {
 
 .footer {
   width: 100%;
-  background-color: #999;
+  background-color: #223;
   padding: 10px 0;
 }
 .copyright {
