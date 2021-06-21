@@ -28,9 +28,9 @@
           </div>
           <% if user_signed_in? %>
             <div class="head__box">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: :nav__logout %>
               <%= link_to "新規作成", new_note_path, class: :nav__btn %>
-              <%= link_to "ノートに参加", new_guide_path, class: :nav__btn %>
+              <%= link_to "ノート参加", new_guide_path, class: :nav__btn %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: :nav__logout %>
             </div>
           <% else %>
             <div class="herd__box">
