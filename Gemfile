@@ -75,3 +75,4 @@ gem 'rqrcode'
 gem 'rqrcode_png'
 gem 'chunky_png'
 gem "aws-sdk-s3", require: false
+gem 'font-awesome-rails'
