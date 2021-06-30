@@ -1,10 +1,10 @@
 <main class="main">
   <div class="inner">
   <h1><%= "#{@note.list_name}" %></h1>
-    <table>
+    <table class="pc_table">
       <thead>
         <tr>
-          <th>選択</th>
+<%#       <th>選択</th> %>
           <th>画像</th>
           <th>名前</th>
           <th>金額</th>
@@ -16,14 +16,24 @@
       </thead>
       <tbody>
         <div>
-        <%#  <%= form_with model: [@note, @list], method: :delete,local: true do |f| %>
-            <%= render partial: 'list', collection: @lists %>
+          <%= render partial: 'list', collection: @lists %>
         </div>
       </tbody>
     </table>
-    <%# link_to '削除', note_list_path(id: @lists), method: :delete %>
-        <%# button_to "送信", "note_item_path(@note.character)", { method: :delete, params: {itemcheck: @list.item} } %>
-      <%# end %>
+        <table class="sp_table">
+      <thead>
+        <tr>
+<%#       <th>選択</th> %>
+          <th>画像</th>
+          <th colspan="2">情報</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div>
+          <%= render partial: 'splist', collection: @lists %>
+        </div>
+      </tbody>
+    </table>
   </div>
 </main>
 

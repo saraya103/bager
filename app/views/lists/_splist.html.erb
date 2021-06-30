@@ -1,0 +1,17 @@
+<tr>
+<%#  <td><%= check_box "itemcheck", "#{list.item.id}" %><%#</td> %>
+  <td rowspan="7"><% if splist.item.image.attached? %>
+        <%= link_to image_tag(splist.item.image, class: :card__img ), note_item_path(id: splist.item.id)  %>
+      <% else %>
+        <%= image_tag '/images/noimg.png' %>
+      <% end %></td>
+  <tr><td><%= "名前" %></td><td><%= "#{splist.item.name}" %></td></tr>
+  <tr><td><%= "金額" %></td><td><%= "#{splist.item.price}" %></td></tr>
+  <tr><td><%= "個数" %></td><td><%= "#{splist.item.count}" %></td></tr>
+  <tr><td><%= "条件" %></td><td><%= "#{splist.item.condition}" %></td></tr>
+  <tr><td><%= "メモ" %></td><td><%= "#{splist.item.memo}" %></td></tr>
+<%#  <td><%= link_to '詳細', note_list_path(id: list.id) %><%# </td> %>
+  <tr><td><%= link_to fa_icon("check-square 2x"), note_list_path(id: splist.id), method: :patch %></td>
+  <td><%= link_to fa_icon("window-close 2x"), note_list_path(id: splist.id), method: :delete, data: { confirm: 'リストから削除しますか？' } %></td>
+</tr>
+<tr><td colspan="3"></td></tr>

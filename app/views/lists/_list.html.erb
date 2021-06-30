@@ -1,7 +1,7 @@
 <tr>
-  <td><%= check_box "itemcheck", "#{list.item.id}" %></td>
+<%# <td><%= check_box "itemcheck", "#{list.item.id}" %><%# </td> %>
   <td><% if list.item.image.attached? %>
-        <%= link_to image_tag(list.item.image, class: :card__img ), root_path  %>
+        <%= link_to image_tag(list.item.image, class: :card__img ), note_item_path(id: list.item.id)  %>
       <% else %>
         <%= image_tag '/images/noimg.png' %>
       <% end %></td>
