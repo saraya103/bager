@@ -79,11 +79,17 @@ a {
   text-decoration: none;
   user-select: none;
 }
+
 .nav__logout:hover{
   opacity: 0.5;
 }
+
 .head__box a {
   color: #def;
+}
+
+.icon__box{
+  display: none;
 }
 
 .guide__btn{
@@ -622,6 +628,10 @@ td {
   font-size: 16px;
   color: #999;
   text-decoration: underline;
+}
+
+.sp_table{
+  display: none;
 }
 
 /* ユーザーページ */

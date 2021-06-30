@@ -31,9 +31,6 @@
   .card__title {
     font-size: 18px;
   }
-  .card__summary {
-    font-size: 14px;
-  }
   .prototype_image{
     width: 100%;
   }
@@ -62,5 +59,35 @@
   }
   .guide_content{
     padding: 5px 25px;
+  }
+  .head__box{
+    display: none;
+  }
+  .icon__box{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .nav__btn{
+    display: inline-block;
+    padding: 0.6em;
+    border: none;
+    border-radius: 30px;
+  }
+  .pc_table{
+    display: none;
+  }
+  .sp_table{
+    display: block;
+  }
+  .card__img {
+    width: 150px;
+    height: 150px;
+  }
+  .fa-check-square{
+    color: #6c6;
+  }
+  .fa-window-close{
+    color: #f44;
   }
 }
