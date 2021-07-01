@@ -24,6 +24,12 @@
   .page-heading {
     font-size: 20px;
   }
+  .row{
+    max-width: 90%;
+  }
+  .container{
+    padding: 10px;
+  }
   .card {
     width: 100%;
     margin-bottom: 60px;
@@ -84,7 +90,8 @@
     width: 150px;
     height: 150px;
   }
-  .fa-check-square{
+/* Font-aresome */
+  .fa-check-square,.fa-plus-square{
     color: #6c6;
   }
   .fa-edit{
@@ -95,6 +102,5 @@
   }
   .fa-info-circle{
     color: #89a;
-    margin-top: 10px;
   }
 }

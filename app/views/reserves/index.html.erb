@@ -1,7 +1,7 @@
 <main class="main">
   <div class="inner">
     <h1><%= "#{@note.reserve_name}" %></h1>
-    <table>
+    <table class="pc_table">
       <thead>
         <tr>
           <th>次回追加日</th>
@@ -18,7 +18,20 @@
       </thead>
       <tbody>
         <div>
-            <%= render partial: 'reserve', collection: @reserves %>
+          <%= render partial: 'reserve', collection: @reserves %>
+        </div>
+      </tbody>
+    </table>
+            <table class="sp_table">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th colspan="2">情報</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div>
+          <%= render partial: 'spreserve', collection: @reserves %>
         </div>
       </tbody>
     </table>

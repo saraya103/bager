@@ -1,0 +1,26 @@
+<tr>
+  <td rowspan="8"><% if spreserve.item.image.attached? %>
+        <%= image_tag(spreserve.item.image, class: :card__img ) %>
+      <% else %>
+        <%= image_tag '/images/noimg.png' %>
+      <% end %><br>
+      <%= "次回追加日" %><br>
+      <%= "#{spreserve.date}" %></td>
+<tr><td><%= "名前：" %></td>
+  <td><%= "#{spreserve.item.name}" %></td></tr>
+<tr><td><%= "金額：" %></td>
+  <td><%= "#{spreserve.item.price}" %></td></tr>
+<tr><td><%= "個数：" %></td>
+  <td><%= "#{spreserve.item.count}" %></td></tr>
+  <tr><td><%= "条件：" %></td>
+  <td><%= "#{spreserve.item.condition}" %></td></tr>
+  <tr><td><%= "備考：" %></td>
+  <td><%= "#{spreserve.item.memo}" %></td></tr>
+  <tr><td><%= "間隔：" %></td>
+  <td><%= "#{spreserve.next.name}" %></td></tr>
+  <tr><td><%= "周期：" %></td>
+  <td><%= "#{spreserve.once.name}" %></td></tr>
+<tr><td><%= link_to fa_icon("info-circle 2x"), note_reserf_path(id: spreserve.id) %></td>
+  <td><%= link_to fa_icon("plus-square 2x"), note_reserf_path(id: spreserve.id), method: :patch %></td>
+  <td><%= link_to fa_icon("window-close 2x"), note_reserf_path(id: spreserve.id), method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+<tr><td colspan="3"></td></tr>
