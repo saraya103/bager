@@ -1,0 +1,39 @@
+<tr>
+<%#  <td><%= check_box "itemcheck", "#{spitem.id}" %><%#</td> %>
+  <td rowspan="7"><% if spitem.image.attached? %>
+        <%= link_to image_tag(spitem.image, class: :card__img ), note_item_path(id: spitem.id)  %>
+      <% else %>
+        <%= image_tag '/images/noimg.png' %>
+      <% end %></td>
+  <tr><td><%= "名前" %></td><td><%= "#{spitem.name}" %></td></tr>
+  <tr><td><%= "金額" %></td><td><%= "#{spitem.price}" %></td></tr>
+  <tr><td><%= "個数" %></td><td><%= "#{spitem.count}" %></td></tr>
+  <tr><td><%= "条件" %></td><td><%= "#{spitem.condition}" %></td></tr>
+  <tr><td><%= "メモ" %></td><td><%= "#{spitem.memo}" %></td></tr>
+  <tr><td><%= link_to fa_icon("edit 2x"), edit_note_item_path(id: spitem.id) %></td>
+  <td><%= link_to fa_icon("window-close 2x"), note_item_path(id: spitem.id), method: :delete, data: { confirm: 'リストから削除しますか？' } %></td>
+</tr>
+<tr><td colspan="3"></td></tr>
+
+<%
+=begin
+%>
+<tr>
+  <td><%= check_box "itemcheck", "#{item.name}" %></td>
+  <td><% if item.image.attached? %>
+        <%= link_to image_tag(item.image, class: :card__img ), root_path  %>
+      <% else %>
+        <%= image_tag '/images/noimg.png' %>
+      <% end %></td>
+  <td><%= "#{item.name}" %></td>
+  <td><%= "#{item.price}" %></td>
+  <td><%= "#{item.count}" %></td>
+  <td><%= "#{item.condition}" %></td>
+  <td><%= "#{item.memo}" %></td>
+  <td><%= link_to '詳細', note_item_path(id: item.id) %></td>
+  <td><%= link_to '編集', edit_note_item_path(id: item.id) %></td>
+  <td><%= link_to '削除', note_item_path(id: item.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<%
+=end
+%>
