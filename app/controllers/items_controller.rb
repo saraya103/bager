@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :note_set, only: [:index, :new, :show, :edit]
+  before_action :item_set, only: [:show, :edit, :update, :destroy]
   
   def index
     @note = Note.find_by(character: params[:note_character])
@@ -8,7 +10,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @note = Note.find_by(character: params[:note_character])
   end
 
   def create
@@ -24,20 +25,22 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @note = Note.find_by(character: params[:note_character])
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @note = Note.find_by(character: params[:note_character])
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to note_items_path(params[:note_char])
+    else
+      @note = @item.note
+      @items = @note.items
+      render :edit
+    end
   end
 
   def destroy
-    item = Item.find(params[:id])
     item.destroy
     redirect_to note_items_path(params[:note_character])
   end
@@ -45,5 +48,13 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :price, :count, :condition, :memo, :image, :note_char).merge(note_id: params[:note_character], user_id: current_user.id)
+  end
+
+  def note_set
+    @note = Note.find_by(character: params[:note_character])
+  end
+
+  def item_set
+    @item = Item.find(params[:id])
   end
 end
