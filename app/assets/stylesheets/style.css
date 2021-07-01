@@ -432,7 +432,7 @@ form textarea {
   font-family: "游ゴシック", "YuGothic";
 }
 
-form input[type="submit"] {
+form input[type="submit"],.sub__btn {
   background-color: #57C3E9;
   border-radius: 20px;
   color: #fff;
@@ -628,6 +628,16 @@ td {
   font-size: 16px;
   color: #999;
   text-decoration: underline;
+}
+
+.none_item{
+  color: #777;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 50px 0;
+  margin: 20px auto;
+  border: 1px dashed #888;
 }
 
 .sp_table{

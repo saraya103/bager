@@ -1,6 +1,11 @@
 <main class="main">
   <div class="inner">
     <h1><%= "#{@note.reserve_name}" %></h1>
+    <% if @reserves == [] %>
+      <div class="none_item">
+        <p>予約アイテムがありません。</p>
+      </div>
+    <% else %>
     <table class="pc_table">
       <thead>
         <tr>
@@ -35,6 +40,7 @@
         </div>
       </tbody>
     </table>
+    <% end %>
   </div>
 </main>
 <div class="main">

@@ -1,6 +1,11 @@
 <main class="main">
   <div class="inner">
   <h1><%= "#{@note.list_name}" %></h1>
+  <% if @lists == [] %>
+    <div class="none_item">
+    <p>登録アイテムがありません。</p>
+    </div>
+    <% else %>
     <table class="pc_table">
       <thead>
         <tr>
@@ -34,6 +39,7 @@
         </div>
       </tbody>
     </table>
+    <% end %>
   </div>
 </main>
 

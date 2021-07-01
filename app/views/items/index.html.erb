@@ -1,6 +1,11 @@
 <main class="main">
   <div class="inner">
   <h1><%= "#{@note.item_name}" %></h1>
+    <% if @items == [] %>
+    <div class="none_item">
+    <p>登録アイテムがありません。</p>
+    </div>
+    <% else %>
     <table class="pc_table">
       <thead>
         <tr>
@@ -34,8 +39,11 @@
         </div>
       </tbody>
     </table>
+    <% end %>
       <div class="greeting">
-        <%= link_to "アイテム登録", new_note_item_path(@note.character), class: :greeting__link%>
+        <%= link_to new_note_item_path(@note.character) do %>
+          <input type="submit" value="アイテム登録" class="sub__btn form__btn">
+        <% end %>
       </div>
   </div>
 </main>
