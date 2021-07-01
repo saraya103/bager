@@ -32,7 +32,9 @@
             <td><p class="detail__title"><%= @log.memo %></p></td>
           </tr>
         </table>
-          <%= link_to "一覧へ戻る", note_logs_path(@log.note.character)  %>
+          <%= link_to :back do %>
+            <input type="submit" value="戻る" class="form__btn">
+          <% end %>
         </div>
       </div>
     </div>
