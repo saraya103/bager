@@ -93,4 +93,8 @@
   .fa-window-close{
     color: #f44;
   }
+  .fa-info-circle{
+    color: #89a;
+    margin-top: 10px;
+  }
 }

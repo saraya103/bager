@@ -1,7 +1,7 @@
 <main class="main">
   <div class="inner">
   <h1><%= "#{@note.log_name}" %></h1>
-    <table>
+    <table class="pc_table">
       <thead>
         <tr>
           <th>日付</th>
@@ -17,6 +17,19 @@
       <tbody>
         <div>
           <%= render partial: 'log', collection: @logs %>
+        </div>
+      </tbody>
+    </table>
+    <table class="sp_table">
+      <thead>
+        <tr>
+          <th>日付/購入者</th>
+          <th colspan="2">情報</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div>
+          <%= render partial: 'splog', collection: @logs %>
         </div>
       </tbody>
     </table>
