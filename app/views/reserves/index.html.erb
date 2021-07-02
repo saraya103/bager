@@ -45,6 +45,15 @@
 </main>
 <div class="main">
   <div class="inner">
-    <%= render partial: "form", locals: { note: @note, reserve: @reserve} %>
+    <% if @reserves == [] %>
+      <h2 class="page-heading">まずはアイテム登録をしましょう</h2>
+      <div class="greeting">
+        <%= link_to new_note_item_path(@note.character) do %>
+          <input type="submit" value="アイテム登録" class="sub__btn form__btn">
+        <% end %>
+      </div>
+    <% else %>
+      <%= render partial: "form", locals: { note: @note, reserve: @reserve} %>
+    <% end %>
   </div>
 </div>
