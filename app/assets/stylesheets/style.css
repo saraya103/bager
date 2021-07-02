@@ -644,6 +644,14 @@ td {
   display: none;
 }
 
+.margin{
+  margin: 20px auto;
+}
+
+.qr_code{
+  text-align: center;
+}
+
 /* ユーザーページ */
 .user__wrapper{
   min-height: calc(100vh - 161px);

@@ -2,9 +2,7 @@
   <div class="contents row">
     <div class="container">
       <h1 id="top"><%= "#{@note.title}の招待ページ" %></h1>
-      <br>
-      <p>「ノートに参加」ページで以下の情報を入力してください。</p>
-      <br>
+      <p class="margin">「ノートに参加」ページで以下の情報を入力してください。</p>
       <table><tr>
         <td colspan="2"></td>
         </tr></tr>
@@ -15,11 +13,11 @@
         <td><%= "#{@note.password.slice(0..2)} #{@note.password.slice(3..5)}" %></td>
         </tr>
       </table>
-      <br>
-      <p>以下のURL・QRコードからもアクセス可能です。</p>
-      <br>
-      <%= qrcode "http://6ager.com/guides/new?id=#{@note.character}&pass=#{@note.password}", {size: 6,  level: :h} %><br>
-      <%= "http://6ager.com/guides/new?id=#{@note.character}&pass=#{@note.password}" %>
+      <p class="margin">以下のURL・QRコードからもアクセス可能です。</p>
+      <div class="qr_code">
+        <%= qrcode "http://6ager.com/guides/new?id=#{@note.character}&pass=#{@note.password}", {size: 6,  level: :h} %><br>
+        <%= "http://6ager.com/guides/new?id=#{@note.character}&pass=#{@note.password}" %>
+      </div>
     </div>
   </div>
 </div>
