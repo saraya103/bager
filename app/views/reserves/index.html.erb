@@ -45,7 +45,7 @@
 </main>
 <div class="main">
   <div class="inner">
-    <% if @reserves == [] %>
+    <% if @note.items == [] %>
       <h2 class="page-heading">まずはアイテム登録をしましょう</h2>
       <div class="greeting">
         <%= link_to new_note_item_path(@note.character) do %>

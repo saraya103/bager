@@ -46,7 +46,7 @@
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
-      <% if @lists == [] %>
+      <% if @note.items == [] %>
         <h2 class="page-heading">まずはアイテム登録をしましょう</h2>
         <div class="greeting">
           <%= link_to new_note_item_path(@note.character) do %>
