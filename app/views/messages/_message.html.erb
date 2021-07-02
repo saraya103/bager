@@ -9,10 +9,12 @@
 
     </div>
     <div class="message_date">
-      <% if message.created_at >= Date.today %>
-        <%= l message.created_at,format: :chat_today %>
+      <% if message.created_at.year < Date.today.year %>
+        <%= l message.created_at, format: :default %>
+      <% elsif message.created_at >= Date.today %>
+        <%= l message.created_at, format: :chat_today %>
       <% else %>
-        <%= l message.created_at,format: :chat_other %>
+        <%= l message.created_at, format: :chat_other %>
       <% end %>
     </div>
   </div>
