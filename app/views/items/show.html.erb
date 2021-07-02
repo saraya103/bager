@@ -1,18 +1,18 @@
-<main class="main">
-  <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
-        <%= @item.name %>
-      </p>
+<main class="main bg_gray">
+  <div class="contents row">
+    <div class="container no_opacity">
       <div class="prototype__image">
         <% if @item.image.attached? %>
-        <%= link_to @item.image, 'data-lightbox': @item.image do %>
-        <%= image_tag(@item.image) %>
+          <%= link_to @item.image, 'data-lightbox': @item.image do %>
+            <%= image_tag(@item.image) %>
+          <% end %>
+        <% else %>
+          <%= image_tag "noimg.png" %>
         <% end %>
-      <% else %>
-        <%= image_tag "noimg.png" %>
-      <% end %>
       </div>
+      <p class="prototype__hedding margin">
+        <%= @item.name %>
+      </p>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title"><%= "金額：#{@item.price}" %></p>
@@ -20,11 +20,11 @@
           <p class="detail__title"><%= "条件：#{@item.condition}" %></p>
           <p class="detail__title"><%= "備考：#{@item.memo}" %></p>
           </p>
-          <%= link_to :back do %>
-            <input type="submit" value="戻る" class="form__btn">
-          <% end %>
         </div>
       </div>
     </div>
+              <%= link_to :back do %>
+            <input type="submit" value="戻る" class="form__btn margin">
+          <% end %>
   </div>
 </main>

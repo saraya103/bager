@@ -193,6 +193,10 @@ a {
   opacity: 0.8;
 }
 
+.no_opacity{
+  opacity: 1.0;
+}
+
 .container h3 {
   margin: 0 0 20px;
   text-align: center;
@@ -446,6 +450,10 @@ form input[type="submit"]:hover {
 
 
 /* メイン */
+.bg_gray{
+  background-color: gray;
+  padding: 10px;
+}
 
 .bg__wrapper{
   width: 100%;
@@ -573,9 +581,9 @@ td {
   text-decoration: underline;
 }
 .prototype__image{
-  width: 40%;
+  width: 80%;
   margin: 0 auto;
-  padding: 16px 0;
+  padding: 5px 0;
 }
 .prototype__detail{
   display: flex;

@@ -1,13 +1,10 @@
-<main class="main">
-  <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
+<main class="main bg_gray">
+  <div class="contents row">
+    <div class="container no_opacity">
+      <p class="prototype__hedding margin">
         <%= @log.name %>
       </p>
-      <div class="prototype__image">
-      </div>
-      <div class="prototype__body">
-        <div class="prototype__detail">
+      <div>
         <table>
           <tr>
             <td colspan="2"></td>
@@ -32,11 +29,10 @@
             <td><p class="detail__title"><%= @log.memo %></p></td>
           </tr>
         </table>
-          <%= link_to :back do %>
-            <input type="submit" value="戻る" class="form__btn">
-          <% end %>
-        </div>
       </div>
     </div>
+    <%= link_to :back do %>
+      <input type="submit" value="戻る" class="form__btn">
+    <% end %>
   </div>
 </main>
