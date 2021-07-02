@@ -1,5 +1,5 @@
 <div class="contents row">
-  <div class="container">
+
     <%= form_with model: note, local: true do |f|%>
       <div class="field">
         <%= f.label :title, "ノートのタイトル" %><br />
@@ -27,8 +27,8 @@
       </div>
       <input name="note[user_ids][]" type="hidden" value=<%= current_user.id %>>
       <div class="actions">
-        <%= f.submit "保存する", class: :form__btn  %>
+        <%= f.submit "作成する", class: :form__btn  %>
       </div>
     <% end %>
-  </div>
+
 </div>

@@ -1,26 +1,32 @@
-<main class="main">
-  <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
-        <%= @reserve.item.name %>
-      </p>
+<main class="main bg_gray">
+  <div class="contents row">
+    <div class="container no_opacity">
       <div class="prototype__image">
         <% if @reserve.item.image.attached? %>
-        <%= link_to image_tag(@reserve.item.image), root_path  %>
+        <%= link_to @reserve.item.image, 'data-lightbox': @reserve.item.image do %>
+        <%= image_tag(@reserve.item.image) %>
+        <% end %>
       <% else %>
         <%= image_tag "noimg.png" %>
       <% end %>
       </div>
+      <p class="prototype__hedding margin">
+        <%= @reserve.item.name %>
+      </p>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title"><%= "価格：#{@reserve.item.price}" %></p>
+          <p class="detail__title"><%= "金額：#{@reserve.item.price}" %></p>
           <p class="detail__title"><%= "個数：#{@reserve.item.count}" %></p>
           <p class="detail__title"><%= "条件：#{@reserve.item.condition}" %></p>
           <p class="detail__title"><%= "備考：#{@reserve.item.memo}" %></p>
-          </p>
-          <%= link_to "一覧へ戻る", note_reserves_path(@reserve.note.character)  %>
+          <p class="detail__title"><%= "間隔：#{@reserve.next.name}" %></p>
+          <p class="detail__title"><%= "周期：#{@reserve.once.name}" %></p>
+          <p class="detail__title margin"><%= "次回追加日：#{@reserve.date}" %></p>
         </div>
       </div>
     </div>
+    <%= link_to :back do %>
+      <input type="submit" value="戻る" class="form__btn">
+    <% end %>
   </div>
 </main>

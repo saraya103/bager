@@ -1,10 +1,15 @@
 <main class="main">
   <div class="inner">
   <h1><%= "#{@note.item_name}" %></h1>
-    <table>
+    <% if @items == [] %>
+    <div class="none_item">
+    <p>登録アイテムがありません。</p>
+    </div>
+    <% else %>
+    <table class="pc_table">
       <thead>
         <tr>
-          <th>選択</th>
+<%#       <th>選択</th> %>
           <th>画像</th>
           <th>名前</th>
           <th>金額</th>
@@ -20,10 +25,25 @@
         </div>
       </tbody>
     </table>
-        <% if user_signed_in? %>
-      <div class="greeting">
-        <%= link_to "アイテム登録", new_note_item_path(@note.character), class: :greeting__link%>
-      </div>
+    <table class="sp_table">
+      <thead>
+        <tr>
+<%#       <th>選択</th> %>
+          <th>画像</th>
+          <th colspan="2">情報</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div>
+          <%= render partial: 'spitem', collection: @items %>
+        </div>
+      </tbody>
+    </table>
     <% end %>
+      <div class="greeting">
+        <%= link_to new_note_item_path(@note.character) do %>
+          <input type="submit" value="アイテム登録" class="sub__btn form__btn">
+        <% end %>
+      </div>
   </div>
 </main>

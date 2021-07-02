@@ -1,10 +1,15 @@
 <main class="main">
   <div class="inner">
   <h1><%= "#{@note.list_name}" %></h1>
-    <table>
+  <% if @lists == [] %>
+    <div class="none_item">
+    <p>登録アイテムがありません。</p>
+    </div>
+    <% else %>
+    <table class="pc_table">
       <thead>
         <tr>
-          <th>選択</th>
+<%#       <th>選択</th> %>
           <th>画像</th>
           <th>名前</th>
           <th>金額</th>
@@ -16,34 +21,53 @@
       </thead>
       <tbody>
         <div>
-        <%#  <%= form_with model: [@note, @list], method: :delete,local: true do |f| %>
-            <%= render partial: 'list', collection: @lists %>
+          <%= render partial: 'list', collection: @lists %>
         </div>
       </tbody>
     </table>
-    <%# link_to '削除', note_list_path(id: @lists), method: :delete %>
-        <%# button_to "送信", "note_item_path(@note.character)", { method: :delete, params: {itemcheck: @list.item} } %>
-      <%# end %>
+        <table class="sp_table">
+      <thead>
+        <tr>
+<%#       <th>選択</th> %>
+          <th>画像</th>
+          <th colspan="2">情報</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div>
+          <%= render partial: 'splist', collection: @lists %>
+        </div>
+      </tbody>
+    </table>
+    <% end %>
   </div>
 </main>
 
 <div class="main">
   <div class="inner">
     <div class="form__wrapper">
-      <h2 class="page-heading">新規リスト登録</h2>
-      <%=form_with model: [@note, @list], local: true do |f|%>
-      <select name="item_id">
-        <option value="">登録するアイテムを選択してください</option>
-          <% Item.where(note_id: @note.id).each do |item| %>
-          <option value=<%= item.id %>><%= item.name %></option>
+      <% if @lists == [] %>
+        <h2 class="page-heading">まずはアイテム登録をしましょう</h2>
+        <div class="greeting">
+          <%= link_to new_note_item_path(@note.character) do %>
+            <input type="submit" value="アイテム登録" class="sub__btn form__btn">
           <% end %>
-      </select>
-      <input name="note_char" type="hidden" value=<%= @note.character %>>
-      <div class="actions">
-        <%= f.submit class: 'chat-room-form__action-btn'%>
-          <%#  <%= render partial: "form", locals: { note: @note, item: @item } %>
-      </div>
+        </div>
+      <% else %>
+        <h2 class="page-heading">新規リスト登録</h2>
+        <%=form_with model: [@note, @list], local: true do |f|%>
+          <select name="item_id">
+          <option value="">登録するアイテムを選択してください</option>
+          <% Item.where(note_id: @note.id).each do |item| %>
+            <option value=<%= item.id %>><%= item.name %></option>
+          <% end %>
+          </select>
+          <input name="note_char" type="hidden" value=<%= @note.character %>>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

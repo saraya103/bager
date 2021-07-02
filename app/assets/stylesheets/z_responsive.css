@@ -1,0 +1,106 @@
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .inner {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .page-heading {
+    font-size: 24px;
+  }
+  .card {
+    width: 48%;
+    margin-bottom: 40px;
+  }
+  .prototype_image{
+    width: 60%;
+  }
+}
+
+ /* スマホ表示 */
+@media (max-width: 599px) {
+  .logo {
+    width: 120px;
+  }
+  .page-heading {
+    font-size: 20px;
+  }
+  .row{
+    max-width: 90%;
+  }
+  .container{
+    padding: 10px;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  .card__title {
+    font-size: 18px;
+  }
+  .prototype_image{
+    width: 100%;
+  }
+  .table{
+    width: 100%;
+  }
+  .guide__box{
+    display: flex;
+    flex-direction: column;
+  }
+  .guide__btn{
+    margin-bottom: 20px; 
+  }
+  .guide_headline{
+    font-size: 24px;
+  }
+  .guide_flex{
+    width: 100%;
+  }
+  .guide_block{
+    width: 100%;
+    padding: 0;
+  }
+  .guide__title{
+    text-align: center;
+  }
+  .guide_content{
+    padding: 5px 25px;
+  }
+  .head__box{
+    display: none;
+  }
+  .icon__box{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .nav__btn{
+    display: inline-block;
+    padding: 0.6em;
+    border: none;
+    border-radius: 30px;
+  }
+  .pc_table{
+    display: none;
+  }
+  .sp_table{
+    display: block;
+  }
+  .card__img {
+    width: 150px;
+    height: 150px;
+  }
+/* Font-aresome */
+  .fa-check-square,.fa-plus-square{
+    color: #6c6;
+  }
+  .fa-edit{
+    color: #46c;
+  }  
+  .fa-window-close{
+    color: #f44;
+  }
+  .fa-info-circle{
+    color: #89a;
+  }
+}

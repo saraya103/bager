@@ -1,32 +1,30 @@
-<main class="main">
-  <div class="inner">
-    <div class="prototype__wrapper">
-      <p class="prototype__hedding">
-        <%= @item.name %>
-      </p>
-        <% if user_signed_in? && current_user.id == @item.user_id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", edit_note_item_path(@item.id), class: :prototype__btn %>
-          <%= link_to "削除する", note_item_path(@item.id), method: :delete, class: :prototype__btn %>
-        </div>
-        <% end %>
+<main class="main bg_gray">
+  <div class="contents row">
+    <div class="container no_opacity">
       <div class="prototype__image">
         <% if @item.image.attached? %>
-        <%= link_to image_tag(@item.image), root_path  %>
-      <% else %>
-        <%= image_tag "noimg.png" %>
-      <% end %>
+          <%= link_to @item.image, 'data-lightbox': @item.image do %>
+            <%= image_tag(@item.image) %>
+          <% end %>
+        <% else %>
+          <%= image_tag "noimg.png" %>
+        <% end %>
       </div>
+      <p class="prototype__hedding margin">
+        <%= @item.name %>
+      </p>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title"><%= "価格：#{@item.price}" %></p>
+          <p class="detail__title"><%= "金額：#{@item.price}" %></p>
           <p class="detail__title"><%= "個数：#{@item.count}" %></p>
           <p class="detail__title"><%= "条件：#{@item.condition}" %></p>
           <p class="detail__title"><%= "備考：#{@item.memo}" %></p>
           </p>
-          <%= link_to "一覧へ戻る", note_items_path(@item.note.character)  %>
         </div>
       </div>
     </div>
+              <%= link_to :back do %>
+            <input type="submit" value="戻る" class="form__btn margin">
+          <% end %>
   </div>
 </main>

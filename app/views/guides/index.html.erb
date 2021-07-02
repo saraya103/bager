@@ -1,4 +1,4 @@
-<main class="main">
+<main class="guide_main">
   <div class="guide">
     <div class="bg__wrapper">
       <%= image_tag '/images/logo.png' %>
@@ -7,5 +7,84 @@
         <%= link_to "新規登録", new_user_registration_path, class: :guide__btn %>
       </div>
     </div>
+  </div>
+  <div class="guide">
+    <div class="guide_headline">
+    BAGER(バガー)とは？
+    </div>
+  </div>
+  <div class="guide_flex">
+    <div class="guide_block">
+      <div class="guide_container">
+        <div class="guide_img">
+          <%= image_tag '/images/guide1.jpg' %>
+        </div>
+        <p class="guide__title">　簡単操作で登録できる</p>
+        <div class="guide_content">
+        アイテム登録しておけば、リストの登録が<br>
+        とても簡単にできます。<br>
+        完了したアイテムは履歴に保存されるので、<br>
+        買い忘れの心配もなくなります。<br>
+        <br>
+        また、予約機能でリストに自動追加されて、<br>
+        日々の確認がよりスムーズに。
+        </div>
+      </div>
+    </div>
+    <div class="guide_block">
+      <div class="guide_container">
+        <div class="guide_img">
+          <%= image_tag '/images/guide2.jpg' %>
+        </div>
+        <p class="guide__title">　用途に合わせて</p>
+        <div class="guide_content">
+        買い物・旅行・支出管理...<br>
+        登録する写真を地図にすれば旅行ガイドに、<br>
+        レシートを撮っておけば家計簿に早変わり。<br>
+        <br>
+        ノートの使い方はあなた次第。<br>
+        あなたの目的・用途に合わせて、ノートを<br>
+        使いこなしましょう。
+        </div>
+      </div>
+    </div>
+    <div class="guide_block">
+      <div class="guide_container">
+        <div class="guide_img">
+          <%= image_tag '/images/guide3.jpg' %>
+        </div>
+        <p class="guide__title">　家族・友人と共有しよう</p>
+        <div class="guide_content">
+        作成したノートは、招待・参加することで<br>
+        共有することが可能です。<br>
+        <br>
+        買い物リストの共有やチーム内の物品管理など、<br>
+        みんなでノートを編集しましょう。<br>
+        </div>
+      </div>
+    </div>
+    <div class="guide_block">
+      <div class="guide_container">
+        <div class="guide_img">
+          <%= image_tag '/images/guide4.jpg' %>
+        </div>
+        <p class="guide__title">　覗かれない安心設計</p>
+        <div class="guide_content">
+        近年よく話題に上がる、セキュリティー問題。<br>
+        こちらについてはご安心ください。<br>
+        <br>
+        ノート参加者以外には表示されず、連打防止機能<br>
+        により総当たりハッキングも対策済み。<br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="guide">
+    <div class="guide_headline">
+      基本無料、今すぐ始めましょう。
+    </div>
+  </div>
+  <div class="guide_flex">
+    <%= link_to "新規登録", new_user_registration_path, class: :guide__btn %>
   </div>
 </main>

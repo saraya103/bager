@@ -1,0 +1,25 @@
+<tr>
+  <td rowspan="6"><%= l splog.created_at %><br>
+    <%= "#{splog.buyer}" %><br><br>
+    <%= link_to fa_icon("info-circle 2x"), note_log_path(id: splog.id) %>
+  </td>
+  <td><%= "名前：" %></td>
+  <td><%= "#{splog.name}" %></td>
+</tr>
+<tr>
+  <td><%= "値段：" %></td>
+  <td><%= "#{splog.price}" %></td>
+</tr>
+<tr>
+  <td><%= "個数：" %></td>
+  <td><%= "#{splog.count}" %></td>
+</tr>
+<tr>
+  <td><%= "条件：" %></td>
+  <td><%= "#{splog.condition}" %></td>
+</tr>
+<tr>
+  <td><%= "備考：" %></td>
+  <td><%= "#{splog.memo}" %></td>
+</tr>
+<tr><td colspan="2"></td></tr>
