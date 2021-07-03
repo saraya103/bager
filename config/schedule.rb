@@ -1,4 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + "/environment")
+require 'active_support/core_ext/time'
 
 set :environment, Rails.env.to_sym
 env :PATH, ENV['PATH']
@@ -7,15 +8,20 @@ set :job_template, "/bin/bash -l -c ':job'"
 job_type :runner, "cd :path && bundle exec rails runner -e :environment ':task' :output"
 job_type :rake, 'export PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && RAILS_ENV=:environment bundle exec rake :task :output'
 
-every :day, at: "0:00 am" do
+def local(time)
+  Time.zone = 'Asia/Tokyo'
+  Time.zone.parse(time).localtime($system_utc_offset)
+end
+
+every :day, at: local('0:00 am') do
   runner "Reserve.date_check"
 end
 
-every :day, at: "5:00 am" do
+every :day, at: local('5:00 am') do
   runner "User.count_reset"
 end
 
-every :month, at: "4:59 am" do
+every :month, at: local('4:59 am') do
   runner "User.stop_down"
 end
 
