@@ -5,7 +5,7 @@ set :environment, Rails.env.to_sym
 env :PATH, ENV['PATH']
 set :output, environment == 'development' ? 'log/crontab.log' : '/var/www/bager/shared/log/crontab.log'
 set :job_template, "/bin/bash -l -c ':job'"
-job_type :runner, "cd /var/www/bager && bundle exec rails runner -e :environment ':task' :output"
+job_type :runner, "cd :path && bundle exec rails runner -e :environment ':task' :output"
 job_type :rake, 'export PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"; cd :path && RAILS_ENV=:environment bundle exec rake :task :output'
 
 def local(time)
