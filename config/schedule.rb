@@ -25,11 +25,6 @@ every :month, at: local('4:59 am') do
   runner "User.stop_down"
 end
 
-# cron check
-every 1.minutes do
-runner "User.count_reset"
-end
-
 # every 1.minutes do
 # rake "tweet:text"
 # end
