@@ -133,7 +133,7 @@ a {
 }
 
 .form__text {
-  width: 50%;
+  width: 100%;
 }
 
 .field{
@@ -424,8 +424,8 @@ div.contents.row .success h3 {
   *zoom: 1;
 }
 
-input:not([type=radio]),
-form input:not([type=radio]),
+input:not([type=radio],[type=file]),
+form input:not([type=radio],[type=file]),
 form select,
 form textarea {
   width: 100%;
@@ -448,6 +448,15 @@ form input[type="submit"]:hover {
   background-color: #84d3ef;
 }
 
+.preview_box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.preview_image{
+  max-width: 40hw;
+}
 
 /* メイン */
 .bg_gray{

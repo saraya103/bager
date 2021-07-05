@@ -27,12 +27,19 @@
     <%= f.text_area :memo, class: :form__text, id:"item_memo" %>
   </div>
 
-   <div class="field">
-    <%= f.label :image, "アイテムの画像" %><br />
-    <%= f.file_field :image, id:"item_image" %>
+  <div class="preview_box">
+    <div class="field preview_image">
+      <%= f.label :image, "アイテムの画像" %><br />
+      <%= f.file_field :image, id:"item_image" %>
+    </div>
+    <div id="img_preview">
+    </div>
   </div>
+
   <input name="note_char" type="hidden" value=<%= note.character %>>
   <div class="actions">
     <%= f.submit "保存する", class: :form__btn  %>
   </div>
 <% end %>
+
+<%= image_tag item.image, id: 'image' if item.image.present? %>

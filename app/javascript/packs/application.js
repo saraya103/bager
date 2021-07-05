@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("../preview")
 require("../set_param")
 require("../radio")
 require('jquery');
